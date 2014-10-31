@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Trevor Parscal"
+		]
+	},
+	"vector": "UI improvements for Vector",
+	"collapsiblevector-desc": "Enhances the user interface when using the Vector skin",
+	"vector-collapsiblenav-preference": "Enable collapsing of items in the sidebar in Vector skin",
+	"vector-collapsiblenav-more": "More languages",
+	"vector-noexperiments-preference": "Exclude me from feature experiments"
+}

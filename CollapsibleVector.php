@@ -35,12 +35,13 @@ $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'CollapsibleVector',
 	'author' => array( 'paladox' ),
-	'version' => '0.1.0',
+	'version' => '0.1.1',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:CollapsibleVector',
 	'descriptionmsg' => 'collapsiblevector-desc',
 );
 $wgAutoloadClasses['VectorHooks'] = dirname( __FILE__ ) . '/CollapsibleVector.hooks.php';
 $wgExtensionMessagesFiles['CollapsibleVector'] = dirname( __FILE__ ) . '/CollapsibleVector.i18n.php';
+$wgMessagesDirs['CollapsibleVector'] = __DIR__ . '/i18n';
 $wgHooks['BeforePageDisplay'][] = 'VectorHooks::beforePageDisplay';
 $wgHooks['GetPreferences'][] = 'VectorHooks::getPreferences';
 $wgHooks['ResourceLoaderGetConfigVars'][] = 'VectorHooks::resourceLoaderGetConfigVars';
