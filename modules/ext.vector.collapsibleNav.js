@@ -40,8 +40,8 @@
 			opera: [['>=', 9.6]],
 			konqueror: [['>=', 4.0]],
 			blackberry: false,
-			ipod: false,
-			iphone: false,
+			ipod: [['>=', 6.0]],
+			iphone: [['>=', 6.0]],
 			ps3: false
 		},
 		// Right-to-left languages
@@ -49,8 +49,8 @@
 			opera: [['>=', 9.6]],
 			konqueror: [['>=', 4.0]],
 			blackberry: false,
-			ipod: false,
-			iphone: false,
+			ipod: [['>=', 6.0]],
+			iphone: [['>=', 6.0]],
 			ps3: false
 		}
 	};

@@ -15,7 +15,7 @@ class VectorHooks {
 			'preferences' => array(
 				'vector-collapsiblenav' => array(
 					'type' => 'toggle',
-					'label-message' => 'vector-collapsiblenav-preference',
+					'label-message' => 'collapsiblevector-collapsiblenav-preference',
 					'section' => 'rendering/advancedrendering',
 				),
 			),
@@ -32,7 +32,7 @@ class VectorHooks {
 			'preferences' => array(
 				'vector-noexperiments' => array(
 					'type' => 'toggle',
-					'label-message' => 'vector-noexperiments-preference',
+					'label-message' => 'collapsiblevector-noexperiments-preference',
 					'section' => 'rendering/advancedrendering',
 				),
 			),
