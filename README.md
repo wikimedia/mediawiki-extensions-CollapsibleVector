@@ -1,3 +1,6 @@
+CollapsibleVector
+=========
+
 # Vector provides enhancements to the Vector skin
 
 # This extension requires MediaWiki 1.24+.
