@@ -4,5 +4,9 @@
 			"Robby"
 		]
 	},
-	"collapsiblevector-collapsiblenav-more": "Méi Sproochen"
+	"collapsiblevector": "Verbesserunge vum Benotzer-IInterface (UI) fir Vector",
+	"collapsiblevector-desc": "Verbessert am Benotzer-Interface Elementer wann d'Ausgesinn ''Vector'' benotzt gëtt.",
+	"collapsiblevector-collapsiblenav-preference": "Zesummeklappe vun Objeten am Navigatiounsmenü am Vector-Ausgesinn aschalten",
+	"collapsiblevector-collapsiblenav-more": "Méi Sproochen",
+	"collapsiblevector-noexperiments-preference": "Mech vun Experimenter mat neie Fonctiounen eraushuelen"
 }
