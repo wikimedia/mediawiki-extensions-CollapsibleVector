@@ -20,18 +20,18 @@ if ( version_compare( $GLOBALS['wgVersion'], '1.24c', '<' ) ) {
 /* Configuration */
 
 // Each module may be configured individually to be globally on/off or user preference based
-$wgVectorFeatures = array(
+$GLOBALS['wgVectorFeatures'] = array(
 	'collapsiblenav' => array( 'global' => true, 'user' => true ),
 );
 
 // Enable bucket testing for new version of collapsible nav
-$wgCollapsibleNavBucketTest = false;
+$GLOBALS['wgCollapsibleNavBucketTest'] = false;
 // Force the new version
-$wgCollapsibleNavForceNewVersion = false;
+$GLOBALS['wgCollapsibleNavForceNewVersion'] = false;
 
 /* Setup */
 
-$wgExtensionCredits['other'][] = array(
+$GLOBALS['wgExtensionCredits']['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'CollapsibleVector',
 	'author' => array( 'paladox' ),
@@ -39,20 +39,20 @@ $wgExtensionCredits['other'][] = array(
 	'url' => 'https://www.mediawiki.org/wiki/Extension:CollapsibleVector',
 	'descriptionmsg' => 'collapsiblevector-desc',
 );
-$wgAutoloadClasses['VectorHooks'] = __DIR__ . '/CollapsibleVector.hooks.php';
-$wgExtensionMessagesFiles['CollapsibleVector'] = __DIR__ . '/CollapsibleVector.i18n.php';
-$wgMessagesDirs['CollapsibleVector'] = __DIR__ . '/i18n';
-$wgHooks['BeforePageDisplay'][] = 'VectorHooks::beforePageDisplay';
-$wgHooks['GetPreferences'][] = 'VectorHooks::getPreferences';
-$wgHooks['ResourceLoaderGetConfigVars'][] = 'VectorHooks::resourceLoaderGetConfigVars';
-$wgHooks['MakeGlobalVariablesScript'][] = 'VectorHooks::makeGlobalVariablesScript';
+$GLOBALS['wgAutoloadClasses']['VectorHooks'] = __DIR__ . '/CollapsibleVector.hooks.php';
+$GLOBALS['wgExtensionMessagesFiles']['CollapsibleVector'] = __DIR__ . '/CollapsibleVector.i18n.php';
+$GLOBALS['wgMessagesDirs']['CollapsibleVector'] = __DIR__ . '/i18n';
+$GLOBALS['wgHooks']['BeforePageDisplay'][] = 'VectorHooks::beforePageDisplay';
+$GLOBALS['wgHooks']['GetPreferences'][] = 'VectorHooks::getPreferences';
+$GLOBALS['wgHooks']['ResourceLoaderGetConfigVars'][] = 'VectorHooks::resourceLoaderGetConfigVars';
+$GLOBALS['wgHooks']['MakeGlobalVariablesScript'][] = 'VectorHooks::makeGlobalVariablesScript';
 
-$vectorResourceTemplate = array(
+$GLOBALS['vectorResourceTemplate'] = array(
 	'localBasePath' => __DIR__ . '/modules',
 	'remoteExtPath' => 'CollapsibleVector/modules',
 	'group' => 'ext.vector',
 );
-$wgResourceModules += array(
+$GLOBALS['wgResourceModules'] += array(
 	// TODO this module should be merged with ext.vector.collapsibleTabs
 	'ext.vector.collapsibleNav' => $vectorResourceTemplate + array(
 		'scripts' => 'ext.vector.collapsibleNav.js',
