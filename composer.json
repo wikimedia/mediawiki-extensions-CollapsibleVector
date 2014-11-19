@@ -1,5 +1,5 @@
 {
-	"name": "mediawiki/collapsiblevector",
+	"name": "mediawiki/collapsible-vector",
 		"type": "mediawiki-extension",
 		"description": "Improves on the user interface elements of the Vector skin",
 		"homepage": "http://www.mediawiki.org/wiki/Extension:CollapsibleVector",
