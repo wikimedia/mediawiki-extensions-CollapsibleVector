@@ -35,7 +35,6 @@ $GLOBALS['wgExtensionCredits']['other'][] = array(
 	'descriptionmsg' => 'collapsiblevector-desc',
 );
 $GLOBALS['wgAutoloadClasses']['VectorHooks'] = __DIR__ . '/CollapsibleVector.hooks.php';
-$GLOBALS['wgExtensionMessagesFiles']['CollapsibleVector'] = __DIR__ . '/CollapsibleVector.i18n.php';
 $GLOBALS['wgMessagesDirs']['CollapsibleVector'] = __DIR__ . '/i18n';
 $GLOBALS['wgHooks']['BeforePageDisplay'][] = 'VectorHooks::beforePageDisplay';
 $GLOBALS['wgHooks']['GetPreferences'][] = 'VectorHooks::getPreferences';
