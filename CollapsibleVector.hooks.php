@@ -35,9 +35,19 @@ class VectorHooks {
 		),
 	);
 	
-	/* Protected Static Methods */
-	
-	protected static function isEnabled( $name ) {
+
+	/* Static Methods */
+
+	/**
+	 * Checks if a certain option is enabled
+	 *
+	 * This method is public to allow other extensions that use CollapsibleVector to use the
+	 * same configuration as CollapsibleVector itself
+	 *
+	 * @param $name string Name of the feature, should be a key of $features
+	 * @return bool
+	 */
+	public static function isEnabled( $name ) {
 		global $wgVectorFeatures, $wgUser;
 		
 		// Features with global set to true are always enabled

@@ -6,7 +6,7 @@
  * @ingroup Extensions
  * 
  * @license GPL v2 or later
- * @version 0.1.2
+ * @version 0.1.4
  *
  * Requires MediaWiki 1.24+
  */
@@ -21,16 +21,31 @@ if ( version_compare( $GLOBALS['wgVersion'], '1.24c', '<' ) ) {
 
 // Each module may be configured individually to be globally on/off or user preference based
 $GLOBALS['wgVectorFeatures'] = array(
-	'collapsiblenav' => array( 'global' => true, 'user' => true ),
+	'collapsiblenav' => array( 'global' => false, 'user' => true ),
 );
+
+/* 
+ * Setting default option.
+ *
+ * Do not remove this.
+ *
+ * Bug T76314
+ */
+$wgDefaultUserOptions['vector-collapsiblenav'] = 1;
+
+/* 
+ * Setting default option.
+ * Do not remove this.
+ */
+$wgDefaultUserOptions['vector-noexperiments'] = 0;
 
 /* Setup */
 
 $GLOBALS['wgExtensionCredits']['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'CollapsibleVector',
-	'author' => array( 'paladox' ),
-	'version' => '0.1.3',
+	'author' => array( 'Paladox' ),
+	'version' => '0.1.4',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:CollapsibleVector',
 	'descriptionmsg' => 'collapsiblevector-desc',
 );
@@ -47,7 +62,6 @@ $GLOBALS['vectorResourceTemplate'] = array(
 	'group' => 'ext.vector',
 );
 $GLOBALS['wgResourceModules'] += array(
-	// TODO this module should be merged with ext.vector.collapsibleTabs
 	'ext.vector.collapsibleNav' => $vectorResourceTemplate + array(
 		'scripts' => 'ext.vector.collapsibleNav.js',
 		'styles' => 'ext.vector.collapsibleNav.less',
