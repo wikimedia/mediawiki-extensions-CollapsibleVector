@@ -6,7 +6,7 @@
  * @ingroup Extensions
  * 
  * @license GPL v2 or later
- * @version 0.1.4
+ * @version 0.1.5
  *
  * Requires MediaWiki 1.24+
  */
