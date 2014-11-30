@@ -7,8 +7,8 @@
  * 
  * @license GPL v2 or later
  * @version 0.1.2
-*
-* Requires MediaWiki 1.24+
+ *
+ * Requires MediaWiki 1.24+
  */
 
 
@@ -23,11 +23,6 @@ if ( version_compare( $GLOBALS['wgVersion'], '1.24c', '<' ) ) {
 $GLOBALS['wgVectorFeatures'] = array(
 	'collapsiblenav' => array( 'global' => true, 'user' => true ),
 );
-
-// Enable bucket testing for new version of collapsible nav
-$GLOBALS['wgCollapsibleNavBucketTest'] = false;
-// Force the new version
-$GLOBALS['wgCollapsibleNavForceNewVersion'] = false;
 
 /* Setup */
 
