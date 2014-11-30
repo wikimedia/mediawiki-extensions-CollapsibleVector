@@ -59,22 +59,20 @@ $GLOBALS['wgHooks']['GetPreferences'][] = 'VectorHooks::getPreferences';
 $GLOBALS['wgHooks']['ResourceLoaderGetConfigVars'][] = 'VectorHooks::resourceLoaderGetConfigVars';
 $GLOBALS['wgHooks']['MakeGlobalVariablesScript'][] = 'VectorHooks::makeGlobalVariablesScript';
 
-$GLOBALS['vectorResourceTemplate'] = array(
-	'localBasePath' => __DIR__ . '/modules',
-	'remoteExtPath' => 'CollapsibleVector/modules',
-	'group' => 'ext.vector',
-);
-$GLOBALS['wgResourceModules'] += array(
-	'ext.vector.collapsibleNav' => $vectorResourceTemplate + array(
-		'scripts' => 'ext.vector.collapsibleNav.js',
-		'styles' => 'ext.vector.collapsibleNav.less',
-		'messages' => array(
-			'collapsiblevector-collapsiblenav-more',
-		),
-		'dependencies' => array(
-			'jquery.client',
-		    'jquery.cookie',
-		    'jquery.tabIndex',
-		),
+
+$GLOBALS['wgResourceModules']['ext.vector.collapsibleNav'] = array(
+	'scripts' => array(
+		'/modules/ext.vector.collapsibleNav.js',
 	),
+	'styles' => '/modules/ext.vector.collapsibleNav.less',
+	'messages' => array(
+		'collapsiblevector-collapsiblenav-more',
+	),
+	'dependencies' => array(
+		'jquery.client',
+		'jquery.cookie',
+		'jquery.tabIndex',
+	),
+	'remoteExtensionPath' => 'CollapsibleVector',
+	'localBasePath' => __DIR__,
 );
