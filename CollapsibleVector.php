@@ -30,14 +30,17 @@ $GLOBALS['wgVectorFeatures'] = array(
  * Do not remove this.
  *
  * Bug T76314
+ *
+ * You can add this to your localsettings.php file and change from 1 to 0 to disbale it globaly.
  */
-$wgDefaultUserOptions['vector-collapsiblenav'] = 1;
+$GLOBALS['wgDefaultUserOptions']['vector-collapsiblenav'] = 1;
 
 /* 
  * Setting default option.
+ *
  * Do not remove this.
  */
-$wgDefaultUserOptions['vector-noexperiments'] = 0;
+$GLOBALS['wgDefaultUserOptions']['vector-noexperiments'] = 0;
 
 /* Setup */
 
