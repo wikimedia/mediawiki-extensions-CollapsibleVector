@@ -30,17 +30,14 @@ $GLOBALS['wgVectorFeatures'] = array(
  * Do not remove this.
  *
  * Bug T76314
- *
- * You can add this to your localsettings.php file and change from 1 to 0 to disbale it globaly.
  */
-$GLOBALS['wgDefaultUserOptions']['vector-collapsiblenav'] = 1;
+$wgDefaultUserOptions['vector-collapsiblenav'] = 1;
 
 /* 
  * Setting default option.
- *
  * Do not remove this.
  */
-$GLOBALS['wgDefaultUserOptions']['vector-noexperiments'] = 0;
+$wgDefaultUserOptions['vector-noexperiments'] = 0;
 
 /* Setup */
 
@@ -48,7 +45,7 @@ $GLOBALS['wgExtensionCredits']['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'CollapsibleVector',
 	'author' => array( 'Paladox' ),
-	'version' => '0.1.4',
+	'version' => '0.1.5',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:CollapsibleVector',
 	'descriptionmsg' => 'collapsiblevector-desc',
 );
@@ -62,9 +59,9 @@ $GLOBALS['wgHooks']['MakeGlobalVariablesScript'][] = 'VectorHooks::makeGlobalVar
 
 $GLOBALS['wgResourceModules']['ext.vector.collapsibleNav'] = array(
 	'scripts' => array(
-		'/modules/ext.vector.collapsibleNav.js',
+		'modules/ext.vector.collapsibleNav.js',
 	),
-	'styles' => '/modules/ext.vector.collapsibleNav.less',
+	'styles' => 'modules/ext.vector.collapsibleNav.less',
 	'messages' => array(
 		'collapsiblevector-collapsiblenav-more',
 	),
