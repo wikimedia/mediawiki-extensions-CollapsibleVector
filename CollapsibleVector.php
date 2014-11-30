@@ -30,7 +30,7 @@ $GLOBALS['wgExtensionCredits']['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'CollapsibleVector',
 	'author' => array( 'paladox' ),
-	'version' => '0.1.2',
+	'version' => '0.1.3',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:CollapsibleVector',
 	'descriptionmsg' => 'collapsiblevector-desc',
 );
