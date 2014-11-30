@@ -22,10 +22,6 @@ class VectorHooks {
 			'requirements' => array(
 				'vector-collapsiblenav' => true,
 			),
-			'configurations' => array(
-				'wgCollapsibleNavBucketTest',
-				'wgCollapsibleNavForceNewVersion',
-			),
 			'modules' => array( 'ext.vector.collapsibleNav' ),
 		),
 		'experiments' => array(
