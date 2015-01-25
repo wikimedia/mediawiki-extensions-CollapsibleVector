@@ -47,10 +47,12 @@ $GLOBALS['wgDefaultUserOptions']['vector-noexperiments'] = 0;
 $GLOBALS['wgExtensionCredits']['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'CollapsibleVector',
+	'namemsg' => 'extensionname-vector',
 	'author' => array( 'Paladox' ),
 	'version' => '0.1.6',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:CollapsibleVector',
 	'descriptionmsg' => 'collapsiblevector-desc',
+	'license-name' => 'GPL-2.0+',
 );
 
 $GLOBALS['wgAutoloadClasses']['VectorHooks'] = __DIR__ . '/CollapsibleVector.hooks.php';

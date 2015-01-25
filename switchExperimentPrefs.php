@@ -50,7 +50,7 @@ class SwitchExperimentPrefs extends Maintenance {
 
 			echo "$total\n";
 
-			wfWaitForSlaves(); // Must be wfWaitForSlaves_masterPos(); on 1.17wmf1
+			wfWaitForSlaves();
 		}
 		echo "Done\n";
 
@@ -59,5 +59,3 @@ class SwitchExperimentPrefs extends Maintenance {
 
 $maintClass = 'SwitchExperimentPrefs';
 require_once( RUN_MAINTENANCE_IF_MAIN );
-
-
