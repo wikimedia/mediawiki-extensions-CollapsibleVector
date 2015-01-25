@@ -21,16 +21,14 @@
 	/* Local */
 
 	// Relaxing
-	//"laxbreak": true,
-	//"smarttabs": true,
-	//"multistr": true,
+	"loopfunc": true,
+	"multistr": true,
 	// Environment
 	"browser": true,
-	// Legacy
-	//"nomen": true,
 
-	"predef": [
-		"mediaWiki",
-		"jQuery"
-	]
+	"globals": {
+		"mediaWiki": false,
+		"jQuery": false,
+		"QUnit": false
+	}
 }
