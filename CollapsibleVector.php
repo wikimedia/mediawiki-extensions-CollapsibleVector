@@ -74,6 +74,6 @@ $GLOBALS['wgResourceModules']['ext.vector.collapsibleNav'] = array(
 		'jquery.cookie',
 		'jquery.tabIndex',
 	),
-	'remoteExtensionPath' => 'CollapsibleVector',
 	'localBasePath' => __DIR__,
+	'remoteExtPath' => 'CollapsibleVector',
 );
