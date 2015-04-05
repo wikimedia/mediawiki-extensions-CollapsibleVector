@@ -6,7 +6,7 @@
  * @ingroup Extensions
  * 
  * @license GPL v2 or later
- * @version 0.1.6
+ * @version 0.1.7
  *
  * Requires MediaWiki 1.24+
  */
@@ -49,7 +49,7 @@ $GLOBALS['wgExtensionCredits']['other'][] = array(
 	'name' => 'CollapsibleVector',
 	'namemsg' => 'extensionname-collapsiblevector',
 	'author' => array( 'Paladox' ),
-	'version' => '0.1.6',
+	'version' => '0.1.7',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:CollapsibleVector',
 	'descriptionmsg' => 'collapsiblevector-desc',
 	'license-name' => 'GPL-2.0+',
