@@ -9,6 +9,7 @@
 	"namemsg": "extensionname-collapsiblevector",
 	"license-name": "GPL-2.0+",
 	"type": "other",
+	"callback": "CollapsibleVectorHooks::onRegistration",
 	"DefaultUserOptions": {
 		"vector-collapsiblenav": 1,
 		"vector-noexperiments": 0
@@ -55,11 +56,6 @@
 		]
 	},
 	"config": {
-		"VectorFeatures": {
-			"collapsiblenav": {
-				"global": false,
-				"user": true
-			}
-		}
+		"@doc": "VectorFeatures is set in CollapsibleVector.hooks.php"
 	}
 }
