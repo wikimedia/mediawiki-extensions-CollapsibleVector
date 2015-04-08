@@ -1,12 +1,12 @@
 <?php
 /**
- * Hooks for Vector extension
+ * Hooks for CollapsibleVector extension
  * 
  * @file
  * @ingroup Extensions
  */
 
-class VectorHooks {
+class CollapsibleVectorHooks {
 	
 	/* Protected Static Members */
 	
