@@ -72,6 +72,7 @@ $GLOBALS['wgResourceModules']['ext.vector.collapsibleNav'] = array(
 	'dependencies' => array(
 		'jquery.client',
 		'jquery.cookie',
+		'jquery.throttle-debounce',
 		'jquery.tabIndex',
 	),
 	'localBasePath' => __DIR__,
