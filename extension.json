@@ -43,16 +43,16 @@
 	},
 	"Hooks": {
 		"BeforePageDisplay": [
-			"VectorHooks::beforePageDisplay"
+			"CollapsibleVectorHooks::beforePageDisplay"
 		],
 		"GetPreferences": [
-			"VectorHooks::getPreferences"
+			"CollapsibleVectorHooks::getPreferences"
 		],
 		"ResourceLoaderGetConfigVars": [
-			"VectorHooks::resourceLoaderGetConfigVars"
+			"CollapsibleVectorHooks::resourceLoaderGetConfigVars"
 		],
 		"MakeGlobalVariablesScript": [
-			"VectorHooks::makeGlobalVariablesScript"
+			"CollapsibleVectorHooks::makeGlobalVariablesScript"
 		]
 	},
 	"config": {
