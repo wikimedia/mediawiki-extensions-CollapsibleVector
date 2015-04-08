@@ -1,6 +1,6 @@
 {
 	"name": "CollapsibleVector",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"author": [
 		"Paladox"
 	],
@@ -19,7 +19,7 @@
 		]
 	},
 	"AutoloadClasses": {
-		"VectorHooks": "CollapsibleVector.hooks.php"
+		"CollapsibleVectorHooks": "CollapsibleVector.hooks.php"
 	},
 	"ResourceModules": {
 		"ext.vector.collapsibleNav": {
@@ -29,6 +29,7 @@
 				"collapsiblevector-collapsiblenav-more"
 			],
 			"dependencies": [
+				"jquery.throttle-debounce",
 				"jquery.client",
 				"jquery.cookie",
 				"jquery.tabIndex"
