@@ -38,6 +38,14 @@ class CollapsibleVectorHooks {
 
 	/* Static Methods */
 
+	public static function onRegistration() {
+		global $wgVectorFeatures;
+		// Each module may be configured individually to be globally on/off or user preference based
+		$wgVectorFeatures = array(
+			'collapsiblenav' => array( 'global' => false, 'user' => true ),
+		);
+	}
+
 	/**
 	 * Checks if a certain option is enabled
 	 *
