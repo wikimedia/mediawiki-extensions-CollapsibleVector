@@ -57,5 +57,6 @@
 	},
 	"config": {
 		"@doc": "VectorFeatures is set in CollapsibleVector.hooks.php"
-	}
+	},
+	"manifest_version": 1
 }
