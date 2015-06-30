@@ -34,7 +34,6 @@ class CollapsibleVectorHooks {
 			),
 		),
 	);
-	
 
 	/* Static Methods */
 
@@ -59,7 +58,6 @@ class CollapsibleVectorHooks {
 		}
 
 	}
-
 
 	/**
 	 * Checks if a certain option is enabled
