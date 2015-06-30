@@ -13,20 +13,20 @@ class CollapsibleVectorHooks {
 	protected static $features = array(
 		'collapsiblenav' => array(
 			'preferences' => array(
-				'vector-collapsiblenav' => array(
+				'collapsiblevector-collapsiblenav' => array(
 					'type' => 'toggle',
 					'label-message' => 'collapsiblevector-collapsiblenav-preference',
 					'section' => 'rendering/advancedrendering',
 				),
 			),
 			'requirements' => array(
-				'vector-collapsiblenav' => true,
+				'collapsiblevector-collapsiblenav' => true,
 			),
-			'modules' => array( 'ext.vector.collapsibleNav' ),
+			'modules' => array( 'ext.collapsiblevector.collapsibleNav' ),
 		),
 		'experiments' => array(
 			'preferences' => array(
-				'vector-noexperiments' => array(
+				'collapsiblevector-noexperiments' => array(
 					'type' => 'toggle',
 					'label-message' => 'collapsiblevector-noexperiments-preference',
 					'section' => 'rendering/advancedrendering',
@@ -39,12 +39,27 @@ class CollapsibleVectorHooks {
 	/* Static Methods */
 
 	public static function onRegistration() {
-		global $wgVectorFeatures;
 		// Each module may be configured individually to be globally on/off or user preference based
-		$wgVectorFeatures = array(
+		$features = array(
 			'collapsiblenav' => array( 'global' => false, 'user' => true ),
 		);
+
+		// Eww, do a 2d array merge so we don't wipe out settings
+		global $wgCollapsibleVectorFeatures;
+		if ( $wgCollapsibleVectorFeatures ) {
+			foreach ( $features as $name => $settings ) {
+				if ( isset( $wgCollapsibleVectorFeatures[$name] ) ) {
+					$wgCollapsibleVectorFeatures[$name] += $settings;
+				} else {
+					$wgCollapsibleVectorFeatures[$name] = $settings;
+				}
+			}
+		} else {
+			$wgCollapsibleVectorFeatures = $features;
+		}
+
 	}
+
 
 	/**
 	 * Checks if a certain option is enabled
@@ -56,14 +71,14 @@ class CollapsibleVectorHooks {
 	 * @return bool
 	 */
 	public static function isEnabled( $name ) {
-		global $wgVectorFeatures, $wgUser;
+		global $wgCollapsibleVectorFeatures, $wgUser;
 		
 		// Features with global set to true are always enabled
-		if ( !isset( $wgVectorFeatures[$name] ) || $wgVectorFeatures[$name]['global'] ) {
+		if ( !isset( $wgCollapsibleVectorFeatures[$name] ) || $wgCollapsibleVectorFeatures[$name]['global'] ) {
 			return true;
 		}
 		// Features with user preference control can have any number of preferences to be specific values to be enabled
-		if ( $wgVectorFeatures[$name]['user'] ) {
+		if ( $wgCollapsibleVectorFeatures[$name]['user'] ) {
 			if ( isset( self::$features[$name]['requirements'] ) ) {
 				foreach ( self::$features[$name]['requirements'] as $requirement => $value ) {
 					// Important! We really do want fuzzy evaluation here
@@ -74,7 +89,7 @@ class CollapsibleVectorHooks {
 			}
 			return true;
 		}
-		// Features controlled by $wgVectorFeatures with both global and user set to false are awlways disabled 
+		// Features controlled by $wgCollapsibleVectorFeatures with both global and user set to false are awlways disabled 
 		return false;
 	}
 	
@@ -109,12 +124,12 @@ class CollapsibleVectorHooks {
 	 * @param $defaultPreferences array list of default user preference controls
 	 */
 	public static function getPreferences( $user, &$defaultPreferences ) {
-		global $wgVectorFeatures;
+		global $wgCollapsibleVectorFeatures;
 		
 		foreach ( self::$features as $name => $feature ) {
 			if (
 				isset( $feature['preferences'] ) &&
-				( !isset( $wgVectorFeatures[$name] ) || $wgVectorFeatures[$name]['user'] )
+				( !isset( $wgCollapsibleVectorFeatures[$name] ) || $wgCollapsibleVectorFeatures[$name]['user'] )
 			) {
 				foreach ( $feature['preferences'] as $key => $options ) {
 					$defaultPreferences[$key] = $options;
@@ -130,13 +145,13 @@ class CollapsibleVectorHooks {
 	 * Adds enabled/disabled switches for Vector modules
 	 */
 	public static function resourceLoaderGetConfigVars( &$vars ) {
-		global $wgVectorFeatures;
+		global $wgCollapsibleVectorFeatures;
 		
 		$configurations = array();
 		foreach ( self::$features as $name => $feature ) {
 			if (
 				isset( $feature['configurations'] ) &&
-				( !isset( $wgVectorFeatures[$name] ) || self::isEnabled( $name ) )
+				( !isset( $wgCollapsibleVectorFeatures[$name] ) || self::isEnabled( $name ) )
 			) {
 				foreach ( $feature['configurations'] as $configuration ) {
 					global $$configuration;
@@ -161,7 +176,7 @@ class CollapsibleVectorHooks {
 			$enabledModules[$name] = self::isEnabled( $name );
 		}
 		
-		$vars['wgVectorEnabledModules'] = $enabledModules;
+		$vars['wgCollapsibleVectorEnabledModules'] = $enabledModules;
 		return true;
 	}
 }

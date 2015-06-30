@@ -1,18 +1,18 @@
 {
 	"name": "CollapsibleVector",
+	"namemsg": "extensionname-collapsiblevector",
 	"version": "0.1.9",
 	"author": [
 		"Paladox"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:CollapsibleVector",
 	"descriptionmsg": "collapsiblevector-desc",
-	"namemsg": "extensionname-collapsiblevector",
 	"license-name": "GPL-2.0+",
 	"type": "other",
 	"callback": "CollapsibleVectorHooks::onRegistration",
 	"DefaultUserOptions": {
-		"vector-collapsiblenav": 1,
-		"vector-noexperiments": 0
+		"collapsiblevector-collapsiblenav": 1,
+		"collapsiblevector-noexperiments": 0
 	},
 	"MessagesDirs": {
 		"CollapsibleVector": [
@@ -23,9 +23,9 @@
 		"CollapsibleVectorHooks": "CollapsibleVector.hooks.php"
 	},
 	"ResourceModules": {
-		"ext.vector.collapsibleNav": {
-			"scripts": "modules/ext.vector.collapsibleNav.js",
-			"styles": "modules/ext.vector.collapsibleNav.less",
+		"ext.collapsiblevector.collapsibleNav": {
+			"scripts": "modules/ext.collapsiblevector.collapsibleNav.js",
+			"styles": "modules/ext.collapsiblevector.collapsibleNav.less",
 			"messages": [
 				"collapsiblevector-collapsiblenav-more"
 			],
@@ -56,7 +56,7 @@
 		]
 	},
 	"config": {
-		"@doc": "VectorFeatures is set in CollapsibleVector.hooks.php"
+		"@doc": "CollapsibleVectorFeatures is set in CollapsibleVector.hooks.php"
 	},
 	"manifest_version": 1
 }
