@@ -1,15 +1,15 @@
 <?php
 /**
  * Hooks for CollapsibleVector extension
- * 
+ *
  * @file
  * @ingroup Extensions
  */
 
 class CollapsibleVectorHooks {
-	
+
 	/* Protected Static Members */
-	
+
 	protected static $features = array(
 		'collapsiblenav' => array(
 			'preferences' => array(
@@ -70,12 +70,15 @@ class CollapsibleVectorHooks {
 	 */
 	public static function isEnabled( $name ) {
 		global $wgCollapsibleVectorFeatures, $wgUser;
-		
+
 		// Features with global set to true are always enabled
-		if ( !isset( $wgCollapsibleVectorFeatures[$name] ) || $wgCollapsibleVectorFeatures[$name]['global'] ) {
+		if (
+			!isset( $wgCollapsibleVectorFeatures[$name] ) || $wgCollapsibleVectorFeatures[$name]['global']
+		) {
 			return true;
 		}
-		// Features with user preference control can have any number of preferences to be specific values to be enabled
+		// Features with user preference control can have any number of preferences
+		// to be specific values to be enabled
 		if ( $wgCollapsibleVectorFeatures[$name]['user'] ) {
 			if ( isset( self::$features[$name]['requirements'] ) ) {
 				foreach ( self::$features[$name]['requirements'] as $requirement => $value ) {
@@ -87,17 +90,18 @@ class CollapsibleVectorHooks {
 			}
 			return true;
 		}
-		// Features controlled by $wgCollapsibleVectorFeatures with both global and user set to false are awlways disabled 
+		// Features controlled by $wgCollapsibleVectorFeatures with both global and user set to false
+		// are awlways disabled
 		return false;
 	}
-	
+
 	/* Static Methods */
-	
+
 	/**
 	 * BeforePageDisplay hook
-	 * 
+	 *
 	 * Adds the modules to the page
-	 * 
+	 *
 	 * @param $out OutputPage output page
 	 * @param $skin Skin current skin
 	 */
@@ -112,18 +116,18 @@ class CollapsibleVectorHooks {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * GetPreferences hook
-	 * 
+	 *
 	 * Adds Vector-releated items to the preferences
-	 * 
+	 *
 	 * @param $user User current user
 	 * @param $defaultPreferences array list of default user preference controls
 	 */
 	public static function getPreferences( $user, &$defaultPreferences ) {
 		global $wgCollapsibleVectorFeatures;
-		
+
 		foreach ( self::$features as $name => $feature ) {
 			if (
 				isset( $feature['preferences'] ) &&
@@ -136,15 +140,15 @@ class CollapsibleVectorHooks {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * ResourceLoaderGetConfigVars hook
-	 * 
+	 *
 	 * Adds enabled/disabled switches for Vector modules
 	 */
 	public static function resourceLoaderGetConfigVars( &$vars ) {
 		global $wgCollapsibleVectorFeatures;
-		
+
 		$configurations = array();
 		foreach ( self::$features as $name => $feature ) {
 			if (
@@ -152,8 +156,8 @@ class CollapsibleVectorHooks {
 				( !isset( $wgCollapsibleVectorFeatures[$name] ) || self::isEnabled( $name ) )
 			) {
 				foreach ( $feature['configurations'] as $configuration ) {
-					global $$configuration;
-					$configurations[$configuration] = $$configuration;
+					global $$wgConfiguration;
+					$configurations[$configuration] = $$wgConfiguration;
 				}
 			}
 		}
@@ -173,7 +177,7 @@ class CollapsibleVectorHooks {
 		foreach ( self::$features as $name => $feature ) {
 			$enabledModules[$name] = self::isEnabled( $name );
 		}
-		
+
 		$vars['wgCollapsibleVectorEnabledModules'] = $enabledModules;
 		return true;
 	}

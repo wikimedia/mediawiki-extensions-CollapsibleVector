@@ -6,14 +6,16 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 	$path = getenv( 'MW_INSTALL_PATH' );
 }
 
-require_once( $path . '/maintenance/Maintenance.php' );
+require_once ( $path . '/maintenance/Maintenance.php' );
 
 class SwitchExperimentPrefs extends Maintenance {
 	function __construct() {
 		parent::__construct();
 		$this->addOption( 'pref', 'Preference to set', true, true );
 		$this->addOption( 'value', 'Value to set the preference to', true, true );
-		$this->mDescription = 'Set a preference for all users that have the collapsiblevector-noexperiments preference enabled.';
+		$this->mDescription = '
+			Set a preference for all users that have the collapsiblevector-noexperiments preference enabled.
+		';
 	}
 
 	function execute() {
@@ -38,8 +40,7 @@ class SwitchExperimentPrefs extends Maintenance {
 				$ids[] = $row->up_user;
 			}
 			$lastUserID = max( $ids );
-			
-			
+
 			foreach ( $ids as $id ) {
 				$user = User::newFromId( $id );
 				if ( !$user->isLoggedIn() )
@@ -58,4 +59,4 @@ class SwitchExperimentPrefs extends Maintenance {
 }
 
 $maintClass = 'SwitchExperimentPrefs';
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once ( RUN_MAINTENANCE_IF_MAIN );
