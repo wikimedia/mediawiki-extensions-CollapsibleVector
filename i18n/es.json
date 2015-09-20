@@ -5,7 +5,6 @@
 			"Macofe"
 		]
 	},
-	"extensionname-collapsiblevector": "CollapsibleVector",
 	"collapsiblevector": "Mejoras de la interfaz de usuario para Vector",
 	"collapsiblevector-desc": "Mejora la interfaz de usuario al utilizar la apariencia Vector",
 	"collapsiblevector-collapsiblenav-preference": "Permitir plegar los menús de navegación de la apariencia Vector",

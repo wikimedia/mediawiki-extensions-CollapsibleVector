@@ -4,7 +4,6 @@
 			"Metalhead64"
 		]
 	},
-	"extensionname-collapsiblevector": "CollapsibleVector",
 	"collapsiblevector": "Verbesserungen an der Benutzeroberfläche für Vector",
 	"collapsiblevector-desc": "Erweitert die Benutzeroberfläche „Vector“",
 	"collapsiblevector-collapsiblenav-preference": "Ermöglicht das Einklappen von Objekten in der Seitenleiste der Benutzeroberfläche „Vector“",
