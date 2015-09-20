@@ -30,7 +30,6 @@
 				"collapsiblevector-collapsiblenav-more"
 			],
 			"dependencies": [
-				"jquery.throttle-debounce",
 				"jquery.client",
 				"jquery.cookie",
 				"jquery.tabIndex"

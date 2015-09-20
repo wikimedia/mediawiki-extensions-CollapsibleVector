@@ -2,7 +2,7 @@
 if ( function_exists( 'wfLoadExtension' ) ) {
 	wfLoadExtension( 'CollapsibleVector' );
 	// Keep i18n globals so mergeMessageFileList.php doesn't break
-	$wgMessagesDirs['CollapsibleVector'] = __DIR__ . '/i18n';
+	$GLOBALS['wgMessagesDirs']['CollapsibleVector'] = __DIR__ . '/i18n';
 	/* wfWarn(
 		'Deprecated PHP entry point used for CollapsibleVector extension.' .
 		'Please use wfLoadExtension instead,' .
