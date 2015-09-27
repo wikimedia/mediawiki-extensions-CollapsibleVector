@@ -37,28 +37,6 @@ class CollapsibleVectorHooks {
 
 	/* Static Methods */
 
-	public static function onRegistration() {
-		// Each module may be configured individually to be globally on/off or user preference based
-		$features = array(
-			'collapsiblenav' => array( 'global' => false, 'user' => true ),
-		);
-
-		// Eww, do a 2d array merge so we don't wipe out settings
-		global $wgCollapsibleVectorFeatures;
-		if ( $wgCollapsibleVectorFeatures ) {
-			foreach ( $features as $name => $settings ) {
-				if ( isset( $wgCollapsibleVectorFeatures[$name] ) ) {
-					$wgCollapsibleVectorFeatures[$name] += $settings;
-				} else {
-					$wgCollapsibleVectorFeatures[$name] = $settings;
-				}
-			}
-		} else {
-			$wgCollapsibleVectorFeatures = $features;
-		}
-
-	}
-
 	/**
 	 * Checks if a certain option is enabled
 	 *
