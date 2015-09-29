@@ -1,36 +1,32 @@
 <?php
 /**
- * Hooks for Vector extension
- * 
+ * Hooks for CollapsibleVector extension
+ *
  * @file
  * @ingroup Extensions
  */
 
-class VectorHooks {
-	
+class CollapsibleVectorHooks {
+
 	/* Protected Static Members */
-	
+
 	protected static $features = array(
 		'collapsiblenav' => array(
 			'preferences' => array(
-				'vector-collapsiblenav' => array(
+				'collapsiblevector-collapsiblenav' => array(
 					'type' => 'toggle',
 					'label-message' => 'collapsiblevector-collapsiblenav-preference',
 					'section' => 'rendering/advancedrendering',
 				),
 			),
 			'requirements' => array(
-				'vector-collapsiblenav' => true,
+				'collapsiblevector-collapsiblenav' => true,
 			),
-			'configurations' => array(
-				'wgCollapsibleNavBucketTest',
-				'wgCollapsibleNavForceNewVersion',
-			),
-			'modules' => array( 'ext.vector.collapsibleNav' ),
+			'modules' => array( 'ext.collapsiblevector.collapsibleNav' ),
 		),
 		'experiments' => array(
 			'preferences' => array(
-				'vector-noexperiments' => array(
+				'collapsiblevector-noexperiments' => array(
 					'type' => 'toggle',
 					'label-message' => 'collapsiblevector-noexperiments-preference',
 					'section' => 'rendering/advancedrendering',
@@ -38,18 +34,30 @@ class VectorHooks {
 			),
 		),
 	);
-	
-	/* Protected Static Methods */
-	
-	protected static function isEnabled( $name ) {
-		global $wgVectorFeatures, $wgUser;
-		
+
+	/* Static Methods */
+
+	/**
+	 * Checks if a certain option is enabled
+	 *
+	 * This method is public to allow other extensions that use CollapsibleVector to use the
+	 * same configuration as CollapsibleVector itself
+	 *
+	 * @param $name string Name of the feature, should be a key of $features
+	 * @return bool
+	 */
+	public static function isEnabled( $name ) {
+		global $wgCollapsibleVectorFeatures, $wgUser;
+
 		// Features with global set to true are always enabled
-		if ( !isset( $wgVectorFeatures[$name] ) || $wgVectorFeatures[$name]['global'] ) {
+		if (
+			!isset( $wgCollapsibleVectorFeatures[$name] ) || $wgCollapsibleVectorFeatures[$name]['global']
+		) {
 			return true;
 		}
-		// Features with user preference control can have any number of preferences to be specific values to be enabled
-		if ( $wgVectorFeatures[$name]['user'] ) {
+		// Features with user preference control can have any number of preferences
+		// to be specific values to be enabled
+		if ( $wgCollapsibleVectorFeatures[$name]['user'] ) {
 			if ( isset( self::$features[$name]['requirements'] ) ) {
 				foreach ( self::$features[$name]['requirements'] as $requirement => $value ) {
 					// Important! We really do want fuzzy evaluation here
@@ -60,17 +68,18 @@ class VectorHooks {
 			}
 			return true;
 		}
-		// Features controlled by $wgVectorFeatures with both global and user set to false are awlways disabled 
+		// Features controlled by $wgCollapsibleVectorFeatures with both global and user set to false
+		// are awlways disabled
 		return false;
 	}
-	
+
 	/* Static Methods */
-	
+
 	/**
 	 * BeforePageDisplay hook
-	 * 
+	 *
 	 * Adds the modules to the page
-	 * 
+	 *
 	 * @param $out OutputPage output page
 	 * @param $skin Skin current skin
 	 */
@@ -85,22 +94,22 @@ class VectorHooks {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * GetPreferences hook
-	 * 
+	 *
 	 * Adds Vector-releated items to the preferences
-	 * 
+	 *
 	 * @param $user User current user
 	 * @param $defaultPreferences array list of default user preference controls
 	 */
 	public static function getPreferences( $user, &$defaultPreferences ) {
-		global $wgVectorFeatures;
-		
+		global $wgCollapsibleVectorFeatures;
+
 		foreach ( self::$features as $name => $feature ) {
 			if (
 				isset( $feature['preferences'] ) &&
-				( !isset( $wgVectorFeatures[$name] ) || $wgVectorFeatures[$name]['user'] )
+				( !isset( $wgCollapsibleVectorFeatures[$name] ) || $wgCollapsibleVectorFeatures[$name]['user'] )
 			) {
 				foreach ( $feature['preferences'] as $key => $options ) {
 					$defaultPreferences[$key] = $options;
@@ -109,24 +118,24 @@ class VectorHooks {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * ResourceLoaderGetConfigVars hook
-	 * 
+	 *
 	 * Adds enabled/disabled switches for Vector modules
 	 */
 	public static function resourceLoaderGetConfigVars( &$vars ) {
-		global $wgVectorFeatures;
-		
+		global $wgCollapsibleVectorFeatures;
+
 		$configurations = array();
 		foreach ( self::$features as $name => $feature ) {
 			if (
 				isset( $feature['configurations'] ) &&
-				( !isset( $wgVectorFeatures[$name] ) || self::isEnabled( $name ) )
+				( !isset( $wgCollapsibleVectorFeatures[$name] ) || self::isEnabled( $name ) )
 			) {
 				foreach ( $feature['configurations'] as $configuration ) {
-					global $$configuration;
-					$configurations[$configuration] = $$configuration;
+					global $$wgConfiguration;
+					$configurations[$configuration] = $$wgConfiguration;
 				}
 			}
 		}
@@ -146,8 +155,8 @@ class VectorHooks {
 		foreach ( self::$features as $name => $feature ) {
 			$enabledModules[$name] = self::isEnabled( $name );
 		}
-		
-		$vars['wgVectorEnabledModules'] = $enabledModules;
+
+		$vars['wgCollapsibleVectorEnabledModules'] = $enabledModules;
 		return true;
 	}
 }

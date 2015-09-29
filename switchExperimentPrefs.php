@@ -6,14 +6,16 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 	$path = getenv( 'MW_INSTALL_PATH' );
 }
 
-require_once( $path . '/maintenance/Maintenance.php' );
+require_once ( $path . '/maintenance/Maintenance.php' );
 
 class SwitchExperimentPrefs extends Maintenance {
 	function __construct() {
 		parent::__construct();
 		$this->addOption( 'pref', 'Preference to set', true, true );
 		$this->addOption( 'value', 'Value to set the preference to', true, true );
-		$this->mDescription = 'Set a preference for all users that have the vector-noexperiments preference enabled.';
+		$this->mDescription = '
+			Set a preference for all users that have the collapsiblevector-noexperiments preference enabled.
+		';
 	}
 
 	function execute() {
@@ -24,7 +26,7 @@ class SwitchExperimentPrefs extends Maintenance {
 		$lastUserID = 0;
 		while ( true ) {
 			$res = $dbw->select( 'user_properties', array( 'up_user' ),
-				array( 'up_property' => 'vector-noexperiments', "up_user > $lastUserID" ),
+				array( 'up_property' => 'collapsiblevector-noexperiments', "up_user > $lastUserID" ),
 				__METHOD__,
 				array( 'LIMIT' => $batchSize ) );
 			if ( !$res->numRows() ) {
@@ -38,8 +40,7 @@ class SwitchExperimentPrefs extends Maintenance {
 				$ids[] = $row->up_user;
 			}
 			$lastUserID = max( $ids );
-			
-			
+
 			foreach ( $ids as $id ) {
 				$user = User::newFromId( $id );
 				if ( !$user->isLoggedIn() )
@@ -50,7 +51,7 @@ class SwitchExperimentPrefs extends Maintenance {
 
 			echo "$total\n";
 
-			wfWaitForSlaves(); // Must be wfWaitForSlaves_masterPos(); on 1.17wmf1
+			wfWaitForSlaves();
 		}
 		echo "Done\n";
 
@@ -58,6 +59,4 @@ class SwitchExperimentPrefs extends Maintenance {
 }
 
 $maintClass = 'SwitchExperimentPrefs';
-require_once( RUN_MAINTENANCE_IF_MAIN );
-
-
+require_once ( RUN_MAINTENANCE_IF_MAIN );
