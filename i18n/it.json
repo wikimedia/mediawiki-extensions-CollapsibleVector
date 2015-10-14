@@ -6,9 +6,10 @@
 			"Una giornata uggiosa '94"
 		]
 	},
+	"collapsiblevector-extensionname": "CollapsibleVector",
 	"collapsiblevector": "Miglioramenti all'interfaccia utente per Vector",
 	"collapsiblevector-desc": "Potenzia l'interfaccia utente quando si usa la skin Vector",
-	"collapsiblevector-collapsiblenav-preference": "Abilita menù di navigazione nascondibile per la skin Vector",
+	"collapsiblevector-collapsiblenav-preference": "Abilita la compressione degli elementi nella barra laterale per la skin Vector",
 	"collapsiblevector-collapsiblenav-more": "Altre lingue",
 	"collapsiblevector-noexperiments-preference": "Escludimi dalle funzionalità sperimentali"
 }
