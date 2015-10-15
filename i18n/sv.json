@@ -4,6 +4,7 @@
 			"Lokal Profil"
 		]
 	},
+	"collapsiblevector-extensionname": "CollapsibleVector",
 	"collapsiblevector": "Förbättringar av användargränssnittet för Vector",
 	"collapsiblevector-desc": "Förbättrar användargränssnittet när Vector-utseendet används",
 	"collapsiblevector-collapsiblenav-preference": "Aktivera möjligheten att kollapsa objekt i sidofältet av Vector-utseendet",

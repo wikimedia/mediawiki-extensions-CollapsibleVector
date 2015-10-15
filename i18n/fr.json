@@ -11,6 +11,7 @@
 			"Element303"
 		]
 	},
+	"collapsiblevector-extensionname": "CollapsibleVector",
 	"collapsiblevector": "Améliorations IU pour Vector",
 	"collapsiblevector-desc": "Améliore l’interface utilisateur lors de l'utilisation de l'habillage Vecteur",
 	"collapsiblevector-collapsiblenav-preference": "Activer le menu de navigation à gauche repliable avec l'habillage vector",

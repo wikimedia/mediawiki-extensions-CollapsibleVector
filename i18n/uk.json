@@ -9,6 +9,7 @@
 			"Ата"
 		]
 	},
+	"collapsiblevector-extensionname": "CollapsibleVector",
 	"collapsiblevector": "Удосконалення інтерфейсу користувача за допомогою «векторного» оформлення",
 	"collapsiblevector-desc": "Покращує інтерфейс користувача для оформлення «Вектор»",
 	"collapsiblevector-collapsiblenav-preference": "Дозволити згортання бічного меню в оформленні «Векторне»",
