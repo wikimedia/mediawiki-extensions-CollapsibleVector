@@ -12,7 +12,7 @@ module.exports = function ( grunt ) {
 				jshintrc: true
 			},
 			all: [
-				'*.js'
+				'.'
 			]
 		},
 		jscs: {
