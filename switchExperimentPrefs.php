@@ -30,7 +30,6 @@ class SwitchExperimentPrefs extends Maintenance {
 				__METHOD__,
 				array( 'LIMIT' => $batchSize ) );
 			if ( !$res->numRows() ) {
-				$dbw->commit();
 				break;
 			}
 			$total += $res->numRows();
