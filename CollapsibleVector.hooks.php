@@ -10,30 +10,30 @@ class CollapsibleVectorHooks {
 
 	/* Protected Static Members */
 
-	protected static $features = array(
-		'collapsiblenav' => array(
-			'preferences' => array(
-				'collapsiblevector-collapsiblenav' => array(
+	protected static $features = [
+		'collapsiblenav' => [
+			'preferences' => [
+				'collapsiblevector-collapsiblenav' => [
 					'type' => 'toggle',
 					'label-message' => 'collapsiblevector-collapsiblenav-preference',
 					'section' => 'rendering/advancedrendering',
-				),
-			),
-			'requirements' => array(
+				],
+			],
+			'requirements' => [
 				'collapsiblevector-collapsiblenav' => true,
-			),
-			'modules' => array( 'ext.collapsiblevector.collapsibleNav' ),
-		),
-		'experiments' => array(
-			'preferences' => array(
-				'collapsiblevector-noexperiments' => array(
+			],
+			'modules' => [ 'ext.collapsiblevector.collapsibleNav' ],
+		],
+		'experiments' => [
+			'preferences' => [
+				'collapsiblevector-noexperiments' => [
 					'type' => 'toggle',
 					'label-message' => 'collapsiblevector-noexperiments-preference',
 					'section' => 'rendering/advancedrendering',
-				),
-			),
-		),
-	);
+				],
+			],
+		],
+	];
 
 	/* Static Methods */
 
@@ -127,7 +127,7 @@ class CollapsibleVectorHooks {
 	public static function resourceLoaderGetConfigVars( &$vars ) {
 		global $wgCollapsibleVectorFeatures;
 
-		$configurations = array();
+		$configurations = [];
 		foreach ( self::$features as $name => $feature ) {
 			if (
 				isset( $feature['configurations'] ) &&
@@ -151,7 +151,7 @@ class CollapsibleVectorHooks {
 	 */
 	public static function makeGlobalVariablesScript( &$vars ) {
 		// Build and export old-style wgVectorEnabledModules object for back compat
-		$enabledModules = array();
+		$enabledModules = [];
 		foreach ( self::$features as $name => $feature ) {
 			$enabledModules[$name] = self::isEnabled( $name );
 		}

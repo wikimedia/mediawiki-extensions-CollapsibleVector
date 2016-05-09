@@ -25,16 +25,16 @@ class SwitchExperimentPrefs extends Maintenance {
 		$total = 0;
 		$lastUserID = 0;
 		while ( true ) {
-			$res = $dbw->select( 'user_properties', array( 'up_user' ),
-				array( 'up_property' => 'collapsiblevector-noexperiments', "up_user > $lastUserID" ),
+			$res = $dbw->select( 'user_properties', [ 'up_user' ],
+				[ 'up_property' => 'collapsiblevector-noexperiments', "up_user > $lastUserID" ],
 				__METHOD__,
-				array( 'LIMIT' => $batchSize ) );
+				[ 'LIMIT' => $batchSize ] );
 			if ( !$res->numRows() ) {
 				break;
 			}
 			$total += $res->numRows();
 
-			$ids = array();
+			$ids = [];
 			foreach ( $res as $row ) {
 				$ids[] = $row->up_user;
 			}
