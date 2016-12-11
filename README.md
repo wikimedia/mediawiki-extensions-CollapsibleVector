@@ -17,4 +17,3 @@ user indicates that users should be allowed to turn it on or off in their user p
 To enable a preference by default but still allow users to disable it in preferences, use something like...
 
 $wgDefaultUserOptions['collapsiblevector-collapsiblenav'] = 1;
-
