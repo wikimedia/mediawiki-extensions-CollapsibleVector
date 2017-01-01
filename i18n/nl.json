@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Esketti"
+			"Esketti",
+			"Mainframe98"
 		]
 	},
 	"collapsiblevector-extensionname": "CollapsibleVector",
 	"collapsiblevector": "UI-verbeteringen voor Vector",
-	"collapsiblevector-desc": "Verbetert de user interface bij gebruik van de Vector huid",
+	"collapsiblevector-desc": "Verbetert de gebruikersinterface bij het gebruik van de Vector vormgeving",
 	"collapsiblevector-collapsiblenav-preference": "Inschakelen instorten van de items in de zijbalk in de Vector huid",
 	"collapsiblevector-collapsiblenav-more": "Meer talen",
 	"collapsiblevector-noexperiments-preference": "Uitsluiten mij van de functie experimenten"
