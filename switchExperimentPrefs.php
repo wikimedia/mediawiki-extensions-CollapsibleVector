@@ -6,7 +6,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 	$path = getenv( 'MW_INSTALL_PATH' );
 }
 
-require_once ( $path . '/maintenance/Maintenance.php' );
+require_once $path . '/maintenance/Maintenance.php';
 
 class SwitchExperimentPrefs extends Maintenance {
 	function __construct() {
@@ -54,9 +54,8 @@ class SwitchExperimentPrefs extends Maintenance {
 			wfWaitForSlaves();
 		}
 		echo "Done\n";
-
 	}
 }
 
 $maintClass = 'SwitchExperimentPrefs';
-require_once ( RUN_MAINTENANCE_IF_MAIN );
+require_once RUN_MAINTENANCE_IF_MAIN;
