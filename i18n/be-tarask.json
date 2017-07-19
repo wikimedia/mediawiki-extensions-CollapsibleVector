@@ -4,5 +4,6 @@
 			"Red Winged Duck"
 		]
 	},
-	"collapsiblevector": "Удасканаленьні інтэрфэйсу для тэмы Vector"
+	"collapsiblevector": "Удасканаленьні інтэрфэйсу для тэмы Vector",
+	"collapsiblevector-desc": "Паляпшае інтэрфэйс карыстальніка для тэмы афармленьня Vector"
 }
