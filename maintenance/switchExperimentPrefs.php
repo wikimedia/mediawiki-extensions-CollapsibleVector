@@ -16,6 +16,7 @@ class SwitchExperimentPrefs extends Maintenance {
 		$this->mDescription = '
 			Set a preference for all users that have the collapsiblevector-noexperiments preference enabled.
 		';
+		$this->requireExtension( 'CollapsibleVector' );
 	}
 
 	function execute() {
