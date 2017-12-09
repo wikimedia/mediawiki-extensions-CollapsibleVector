@@ -19,7 +19,7 @@
 		]
 	},
 	"AutoloadClasses": {
-		"CollapsibleVectorHooks": "CollapsibleVector.hooks.php"
+		"CollapsibleVectorHooks": "CollapsibleVectorHooks.php"
 	},
 	"ResourceModules": {
 		"ext.collapsiblevector.collapsibleNav": {
