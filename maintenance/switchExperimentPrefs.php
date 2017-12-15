@@ -1,6 +1,6 @@
 <?php
 
-$path = '../..';
+$path = '../../..';
 
 if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 	$path = getenv( 'MW_INSTALL_PATH' );
