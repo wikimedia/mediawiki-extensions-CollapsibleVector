@@ -8,8 +8,7 @@
 
 class CollapsibleVectorHooks {
 
-	/* Protected Static Members */
-
+	/** @var array $features */
 	protected static $features = [
 		'collapsiblenav' => [
 			'preferences' => [
@@ -35,15 +34,13 @@ class CollapsibleVectorHooks {
 		],
 	];
 
-	/* Static Methods */
-
 	/**
 	 * Checks if a certain option is enabled
 	 *
 	 * This method is public to allow other extensions that use CollapsibleVector to use the
 	 * same configuration as CollapsibleVector itself
 	 *
-	 * @param $name string Name of the feature, should be a key of $features
+	 * @param string $name Name of the feature, should be a key of $features
 	 * @return bool
 	 */
 	public static function isEnabled( $name ) {
@@ -73,15 +70,14 @@ class CollapsibleVectorHooks {
 		return false;
 	}
 
-	/* Static Methods */
-
 	/**
 	 * BeforePageDisplay hook
 	 *
 	 * Adds the modules to the page
 	 *
-	 * @param $out OutputPage output page
-	 * @param $skin Skin current skin
+	 * @param OutputPage $out output page
+	 * @param Skin $skin current skin
+	 * @return true
 	 */
 	public static function beforePageDisplay( $out, $skin ) {
 		if ( $skin instanceof SkinVector ) {
@@ -100,8 +96,9 @@ class CollapsibleVectorHooks {
 	 *
 	 * Adds Vector-releated items to the preferences
 	 *
-	 * @param $user User current user
-	 * @param $defaultPreferences array list of default user preference controls
+	 * @param User $user current user
+	 * @param array &$defaultPreferences list of default user preference controls
+	 * @return true
 	 */
 	public static function getPreferences( $user, &$defaultPreferences ) {
 		global $wgCollapsibleVectorFeatures;
@@ -123,6 +120,8 @@ class CollapsibleVectorHooks {
 	 * ResourceLoaderGetConfigVars hook
 	 *
 	 * Adds enabled/disabled switches for Vector modules
+	 * @param array &$vars
+	 * @return true
 	 */
 	public static function resourceLoaderGetConfigVars( &$vars ) {
 		global $wgCollapsibleVectorFeatures;
@@ -146,7 +145,7 @@ class CollapsibleVectorHooks {
 	}
 
 	/**
-	 * @param $vars array
+	 * @param array &$vars
 	 * @return bool
 	 */
 	public static function makeGlobalVariablesScript( &$vars ) {
