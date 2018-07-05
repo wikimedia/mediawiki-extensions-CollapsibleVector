@@ -132,7 +132,7 @@
 					toggle( $( this ) );
 				}
 			} )
-			.delegate( 'mousedown', '.portal:not(.persistent) > h3', function ( e ) {
+			.on( 'mousedown', '.portal:not(.persistent) > h3', function ( e ) {
 				if ( e.which !== 3 ) { // Right mouse click
 					toggle( $( this ) );
 					$( this ).blur();
