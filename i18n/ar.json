@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"ديفيد"
+			"ديفيد",
+			"Meno25"
 		]
 	},
+	"collapsiblevector-extensionname": "فيكتور القابل للطي",
 	"collapsiblevector": "تحسينات واجهة المستخدم لفكتور",
 	"collapsiblevector-desc": "يعزز واجهة المستخدم عند استخدام واجهة فكتور",
 	"collapsiblevector-collapsiblenav-preference": "تمكين طي العناصر الموجودة في الشريط الجانبي في واجهة فكتور",
