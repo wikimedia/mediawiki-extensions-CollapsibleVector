@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"01miki10"
+			"01miki10",
+			"Pyscowicz"
 		]
 	},
-	"collapsiblevector": "Käyttöliittymän parannuksia Vectoriin",
-	"collapsiblevector-desc": "Parantaa käyttöliittymää Vector-ulkoasussa",
+	"collapsiblevector": "Käyttöliittymän parannuksia Vektoriin",
+	"collapsiblevector-desc": "Parantaa käyttöliittymää Vektori-ulkoasussa",
 	"collapsiblevector-collapsiblenav-more": "Lisää kieliä"
 }
