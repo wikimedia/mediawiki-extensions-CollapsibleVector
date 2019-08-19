@@ -13,9 +13,8 @@ class SwitchExperimentPrefs extends Maintenance {
 		parent::__construct();
 		$this->addOption( 'pref', 'Preference to set', true, true );
 		$this->addOption( 'value', 'Value to set the preference to', true, true );
-		$this->mDescription = '
-			Set a preference for all users that have the collapsiblevector-noexperiments preference enabled.
-		';
+		$this->addDescription( 'Set a preference for all users that have the ' .
+			'collapsiblevector-noexperiments preference enabled.' );
 		$this->requireExtension( 'CollapsibleVector' );
 	}
 
