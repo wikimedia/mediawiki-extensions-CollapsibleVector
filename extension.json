@@ -30,8 +30,7 @@
 			],
 			"dependencies": [
 				"jquery.client",
-				"jquery.cookie",
-				"jquery.tabIndex"
+				"jquery.cookie"
 			]
 		}
 	},
