@@ -44,7 +44,7 @@ class CollapsibleVectorHooks {
 	 * @return bool
 	 */
 	public static function isEnabled( $name ) {
-		global $wgCollapsibleVectorFeatures, $wgUser;
+		global $wgCollapsibleVectorFeatures;
 
 		// Features with global set to true are always enabled
 		if (
@@ -56,9 +56,10 @@ class CollapsibleVectorHooks {
 		// to be specific values to be enabled
 		if ( $wgCollapsibleVectorFeatures[$name]['user'] ) {
 			if ( isset( self::$features[$name]['requirements'] ) ) {
+				$user = RequestContext::getMain()->getUser();
 				foreach ( self::$features[$name]['requirements'] as $requirement => $value ) {
 					// Important! We really do want fuzzy evaluation here
-					if ( $wgUser->getOption( $requirement ) != $value ) {
+					if ( $user->getOption( $requirement ) != $value ) {
 						return false;
 					}
 				}
