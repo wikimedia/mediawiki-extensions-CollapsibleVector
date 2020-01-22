@@ -1,7 +1,7 @@
 /**
  * Collapsible navigation for Vector
  */
-( function ( mw, $ ) {
+( function () {
 	'use strict';
 	var map;
 
@@ -140,5 +140,4 @@
 				return false;
 			} );
 	} );
-
-}( mediaWiki, jQuery ) );
+}() );
