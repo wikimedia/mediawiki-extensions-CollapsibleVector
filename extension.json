@@ -39,18 +39,10 @@
 		"remoteExtPath": "CollapsibleVector"
 	},
 	"Hooks": {
-		"BeforePageDisplay": [
-			"CollapsibleVectorHooks::beforePageDisplay"
-		],
-		"GetPreferences": [
-			"CollapsibleVectorHooks::getPreferences"
-		],
-		"ResourceLoaderGetConfigVars": [
-			"CollapsibleVectorHooks::resourceLoaderGetConfigVars"
-		],
-		"MakeGlobalVariablesScript": [
-			"CollapsibleVectorHooks::makeGlobalVariablesScript"
-		]
+		"BeforePageDisplay": "CollapsibleVectorHooks::beforePageDisplay",
+		"GetPreferences": "CollapsibleVectorHooks::getPreferences",
+		"ResourceLoaderGetConfigVars": "CollapsibleVectorHooks::resourceLoaderGetConfigVars",
+		"MakeGlobalVariablesScript": "CollapsibleVectorHooks::makeGlobalVariablesScript"
 	},
 	"config": {
 		"CollapsibleVectorFeatures": {
