@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Element303",
 			"Gomoko",
 			"IAlex",
 			"Jean-Frédéric",
 			"McDutchie",
 			"PieRRoMaN",
 			"Sherbrooke",
-			"Urhixidur",
-			"Element303"
+			"Urhixidur"
 		]
 	},
 	"collapsiblevector-extensionname": "CollapsibleVector",
