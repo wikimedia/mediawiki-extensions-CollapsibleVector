@@ -82,7 +82,7 @@
 							'aria-controls': id + '-list',
 							role: 'button'
 						} )
-						.click( false )
+						.on( 'click', false )
 				);
 				// In the case that we are not showing the new version, let's show the languages by default
 				if (
@@ -135,7 +135,7 @@
 			.on( 'mousedown', '.portal:not(.persistent) > h3', function ( e ) {
 				if ( e.which !== 3 ) { // Right mouse click
 					toggle( $( this ) );
-					$( this ).blur();
+					$( this ).trigger( 'blur' );
 				}
 				return false;
 			} );
