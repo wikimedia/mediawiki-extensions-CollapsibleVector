@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 $path = '../../..';
 
 if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
@@ -20,6 +22,7 @@ class SwitchExperimentPrefs extends Maintenance {
 
 	function execute() {
 		$dbw = wfGetDB( DB_MASTER );
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
 		$batchSize = 100;
 		$total = 0;
@@ -51,7 +54,7 @@ class SwitchExperimentPrefs extends Maintenance {
 
 			echo "$total\n";
 
-			wfWaitForSlaves();
+			$lbFactory->waitForReplication();
 		}
 		echo "Done\n";
 	}
