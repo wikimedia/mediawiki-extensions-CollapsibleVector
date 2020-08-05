@@ -1,7 +1,6 @@
 /**
  * LESS Stylesheet for collapsible nav
  */
-@import 'mediawiki.mixins.less';
 
 #mw-panel.collapsible-nav {
 	.portal {
@@ -9,7 +8,7 @@
 		h3 {
 			background-position: left center;
 			background-repeat: no-repeat;
-			.background-image-svg('images/arrow-expanded.svg', 'images/arrow-expanded.png');
+			background-image: url( images/arrow-expanded.svg );
 			padding: 4px 0 3px 1.5em;
 
 			&:hover {
@@ -66,7 +65,7 @@
 				color: #0645ad;
 				background-position: left center;
 				background-repeat: no-repeat;
-				.background-image-svg('images/arrow-collapsed-ltr.svg', 'images/arrow-collapsed-ltr.png');
+				background-image: url( images/arrow-collapsed-ltr.svg );
 
 				&:hover {
 					text-decoration: underline;
