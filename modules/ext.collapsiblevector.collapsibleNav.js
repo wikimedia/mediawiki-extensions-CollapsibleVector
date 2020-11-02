@@ -19,7 +19,7 @@
 			.parent()
 			.toggleClass( 'expanded' )
 			.toggleClass( 'collapsed' )
-			.find( '.body' )
+			.find( '.vector-menu-content' )
 			.slideToggle( 'fast' );
 		isCollapsed = !isCollapsed;
 
@@ -93,7 +93,7 @@
 					$( this )
 						.addClass( 'expanded' )
 						.removeClass( 'collapsed' )
-						.find( '.body' )
+						.find( '.vector-menu-content' )
 						.hide() // bug 34450
 						.show();
 					$( this ).find( 'h3 > a' )
