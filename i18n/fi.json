@@ -7,5 +7,6 @@
 	},
 	"collapsiblevector": "Käyttöliittymän parannuksia Vektoriin",
 	"collapsiblevector-desc": "Parantaa käyttöliittymää Vektori-ulkoasussa",
+	"collapsiblevector-collapsiblenav-preference": "Mahdollista sivupalkin kohteiden piilottaminen Vektori-ulkoasussa",
 	"collapsiblevector-collapsiblenav-more": "Lisää kieliä"
 }
