@@ -22,7 +22,9 @@ class SwitchExperimentPrefs extends Maintenance {
 
 	function execute() {
 		$dbw = wfGetDB( DB_MASTER );
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$services = MediaWikiServices::getInstance();
+		$lbFactory = $services->getDBLoadBalancerFactory();
+		$userOptionsManager = $services->getUserOptionsManager();
 
 		$batchSize = 100;
 		$total = 0;
@@ -48,7 +50,7 @@ class SwitchExperimentPrefs extends Maintenance {
 				if ( !$user->isLoggedIn() ) {
 					continue;
 				}
-				$user->setOption( $this->getOption( 'pref' ), $this->getOption( 'value' ) );
+				$userOptionsManager->setOption( $user, $this->getOption( 'pref' ), $this->getOption( 'value' ) );
 				$user->saveSettings();
 			}
 
