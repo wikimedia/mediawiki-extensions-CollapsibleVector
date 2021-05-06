@@ -47,7 +47,7 @@ class SwitchExperimentPrefs extends Maintenance {
 
 			foreach ( $ids as $id ) {
 				$user = User::newFromId( $id );
-				if ( !$user->isLoggedIn() ) {
+				if ( !$user->isRegistered() ) {
 					continue;
 				}
 				$userOptionsManager->setOption( $user, $this->getOption( 'pref' ), $this->getOption( 'value' ) );
