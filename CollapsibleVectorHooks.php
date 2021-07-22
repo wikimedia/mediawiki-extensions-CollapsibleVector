@@ -8,7 +8,7 @@
 
 class CollapsibleVectorHooks {
 
-	/** @var array $features */
+	/** @var array */
 	protected static $features = [
 		'collapsiblenav' => [
 			'preferences' => [
