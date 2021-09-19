@@ -21,7 +21,7 @@ class SwitchExperimentPrefs extends Maintenance {
 	}
 
 	function execute() {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$services = MediaWikiServices::getInstance();
 		$lbFactory = $services->getDBLoadBalancerFactory();
 		$userOptionsManager = $services->getUserOptionsManager();
