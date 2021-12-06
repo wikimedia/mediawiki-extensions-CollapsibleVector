@@ -3,13 +3,13 @@ CollapsibleVector
 
 Vector provides enhancements to the Vector skin
 
-This extension requires MediaWiki 1.25+.
+This extension requires MediaWiki 1.35+.
 
 Example LocalSettings.php additions
 
-require_once( "$IP/extensions/CollapsibleVector/CollapsibleVector.php" );
+wfLoadExtension( 'CollapsibleVector' );
 
-Before configuring this extension, see CollapsibleVector.php and become familiar with the initial state and structure of the
+Before configuring this extension, see extension.json and become familiar with the initial state and structure of the
 $wgCollapsibleVector configuration variable. Essentially it's an array of arrays, keyed by feature name, each containing
 global and user keys with boolean values. "global" indicates that it should be turned on for everyone always, while
 user indicates that users should be allowed to turn it on or off in their user preferences.
