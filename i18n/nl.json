@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Esketti",
-			"Mainframe98"
+			"Mainframe98",
+			"McDutchie"
 		]
 	},
 	"collapsiblevector-extensionname": "CollapsibleVector",
@@ -10,5 +11,5 @@
 	"collapsiblevector-desc": "Verbetert de gebruikersinterface bij het gebruik van de Vector vormgeving",
 	"collapsiblevector-collapsiblenav-preference": "Samenvouwen van de items in de zijbalk in de Vector vormgeving inschakelen",
 	"collapsiblevector-collapsiblenav-more": "Meer talen",
-	"collapsiblevector-noexperiments-preference": "Mij van de functie experimenten uitsluiten"
+	"collapsiblevector-noexperiments-preference": "Mij van de functionaliteitsexperimenten uitsluiten"
 }
