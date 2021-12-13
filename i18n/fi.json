@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"01miki10",
-			"Pyscowicz"
+			"Pyscowicz",
+			"MITO"
 		]
 	},
 	"collapsiblevector": "Käyttöliittymän parannuksia Vektoriin",
 	"collapsiblevector-desc": "Parantaa käyttöliittymää Vektori-ulkoasussa",
-	"collapsiblevector-collapsiblenav-more": "Lisää kieliä"
+	"collapsiblevector-collapsiblenav-preference": "Mahdollista sivupalkin kohteiden piilottaminen Vektori-ulkoasussa",
+	"collapsiblevector-collapsiblenav-more": "Lisää kieliä",
+	"collapsiblevector-noexperiments-preference": "Poista minut toimintokokeista"
 }

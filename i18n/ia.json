@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"collapsiblevector": "Meliorationes al interfacie de usator pro Vector",
+	"collapsiblevector-desc": "Meliora le interfacie de usator quando se usa le apparentia Vector",
+	"collapsiblevector-collapsiblenav-preference": "Permitter de plicar elementos in le barra lateral in le apparentia Vector",
+	"collapsiblevector-collapsiblenav-more": "Plus linguas",
+	"collapsiblevector-noexperiments-preference": "Excluder me de experimentos de functionalitate"
+}

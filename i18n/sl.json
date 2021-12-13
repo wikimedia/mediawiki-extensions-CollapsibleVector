@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Eleassar"
 		]
 	},
 	"collapsiblevector-extensionname": "ZložljivVector",
 	"collapsiblevector": "Izboljšave uporabniškega vmesnika za Vector",
-	"collapsiblevector-desc": "Izboljša uporabniški vmesnik pri uporabi kože Vector.",
+	"collapsiblevector-desc": "Izboljša uporabniški vmesnik pri uporabi preobleke Vector.",
 	"collapsiblevector-collapsiblenav-preference": "Omogoči zlaganje vnosov v navigacijskem meniju v koži Vector",
 	"collapsiblevector-collapsiblenav-more": "Več jezikov",
 	"collapsiblevector-noexperiments-preference": "Izključi me iz prihodnjih preizkusov"
