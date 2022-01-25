@@ -18,7 +18,7 @@
 		"wiki": "https://www.mediawiki.org/wiki/Extension:CollapsibleVector",
 		"forum": "https://www.mediawiki.org/wiki/Extension_talk:CollapsibleVector",
 		"source": "https://phabricator.wikimedia.org/diffusion/ECLV/",
-		"irc": "irc://irc.freenode.org/mediawiki"
+		"irc": "irc://irc.libera.chat/mediawiki"
 	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "38.0.0",
