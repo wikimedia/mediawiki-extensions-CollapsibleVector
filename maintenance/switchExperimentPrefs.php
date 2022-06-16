@@ -62,5 +62,5 @@ class SwitchExperimentPrefs extends Maintenance {
 	}
 }
 
-$maintClass = 'SwitchExperimentPrefs';
+$maintClass = SwitchExperimentPrefs::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
