@@ -74,7 +74,7 @@
 					state = $.cookie( 'vector-nav-' + id );
 				$( this ).find( 'ul:first' ).attr( 'id', id + '-list' );
 				// Add anchor tag to heading for better accessibility
-				$( this ).find( 'h3' ).wrapInner(
+				$( this ).find( 'label' ).wrapInner(
 					$( '<a>' )
 						.attr( {
 							href: '#',
@@ -96,7 +96,7 @@
 						.find( '.vector-menu-content' )
 						.hide() // bug 34450
 						.show();
-					$( this ).find( 'h3 > a' )
+					$( this ).find( 'label > a' )
 						.attr( {
 							'aria-pressed': 'true',
 							'aria-expanded': 'true'
@@ -105,7 +105,7 @@
 					$( this )
 						.addClass( 'collapsed' )
 						.removeClass( 'expanded' );
-					$( this ).find( 'h3 > a' )
+					$( this ).find( 'label > a' )
 						.attr( {
 							'aria-pressed': 'false',
 							'aria-expanded': 'false'
@@ -119,20 +119,20 @@
 
 		/* Tab Indexing */
 
-		$headings = $( '#mw-panel > .portal:not(.persistent) > h3' );
+		$headings = $( '#mw-panel > .portal:not(.persistent) > label' );
 
 		// Make it keyboard accessible
 		$headings.attr( 'tabindex', '0' );
 
 		// Toggle the selected menu's class and expand or collapse the menu
 		$( '#mw-panel' )
-			.on( 'keydown', '.portal:not(.persistent) > h3', function ( e ) {
+			.on( 'keydown', '.portal:not(.persistent) > label', function ( e ) {
 				// Make the space and enter keys act as a click
 				if ( e.which === 13 /* Enter */ || e.which === 32 /* Space */ ) {
 					toggle( $( this ) );
 				}
 			} )
-			.on( 'mousedown', '.portal:not(.persistent) > h3', function ( e ) {
+			.on( 'mousedown', '.portal:not(.persistent) > label', function ( e ) {
 				if ( e.which !== 3 ) { // Right mouse click
 					toggle( $( this ) );
 					$( this ).trigger( 'blur' );
