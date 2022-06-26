@@ -1,7 +1,7 @@
 {
 	"name": "CollapsibleVector",
 	"namemsg": "collapsiblevector-extensionname",
-	"version": "0.1.10",
+	"version": "0.1.11",
 	"author": [
 		"Paladox"
 	],
@@ -10,7 +10,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.35.3"
+		"MediaWiki": ">= 1.38.0"
 	},
 	"DefaultUserOptions": {
 		"collapsiblevector-collapsiblenav": 1,
