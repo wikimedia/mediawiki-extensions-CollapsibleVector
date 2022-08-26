@@ -6,6 +6,8 @@
  * @ingroup Extensions
  */
 
+use MediaWiki\MediaWikiServices;
+
 class CollapsibleVectorHooks {
 
 	/** @var array */
@@ -56,10 +58,11 @@ class CollapsibleVectorHooks {
 		// to be specific values to be enabled
 		if ( $wgCollapsibleVectorFeatures[$name]['user'] ) {
 			if ( isset( self::$features[$name]['requirements'] ) ) {
+				$userOptionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
 				$user = RequestContext::getMain()->getUser();
 				foreach ( self::$features[$name]['requirements'] as $requirement => $value ) {
 					// Important! We really do want fuzzy evaluation here
-					if ( $user->getOption( $requirement ) != $value ) {
+					if ( $userOptionsManager->getOption( $user, $requirement ) != $value ) {
 						return false;
 					}
 				}
