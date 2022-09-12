@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"पर्वत सुबेदी"
+			"पर्वत सुबेदी",
+			"बडा काजी"
 		]
 	},
-	"collapsiblevector-collapsiblenav-more": "थप भाषाहरू"
+	"collapsiblevector-collapsiblenav-more": "थप भाषाहरू",
+	"collapsiblevector-noexperiments-preference": "मलाई सुविधा प्रयोगहरूबाट बहिष्कृत गर्नुहोस्"
 }
