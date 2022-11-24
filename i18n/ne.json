@@ -5,6 +5,9 @@
 			"बडा काजी"
 		]
 	},
+	"collapsiblevector": "भेक्टरका लागि UI सुधारहरू",
+	"collapsiblevector-desc": "भेक्टर छाला प्रयोग गर्दा प्रयोगकर्ता इन्टरफेस बढाउँछ",
+	"collapsiblevector-collapsiblenav-preference": "भेक्टर छालामा साइडबारमा वस्तुहरूको पतन सक्षम गर्नुहोस्",
 	"collapsiblevector-collapsiblenav-more": "थप भाषाहरू",
 	"collapsiblevector-noexperiments-preference": "मलाई सुविधा प्रयोगहरूबाट बहिष्कृत गर्नुहोस्"
 }
