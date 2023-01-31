@@ -84,12 +84,7 @@ class CollapsibleVectorHooks {
 	 * @return true
 	 */
 	public static function beforePageDisplay( $out, $skin ) {
-		if (
-			// MediaWiki 1.38
-			( $skin instanceof Vector\SkinVector ) ||
-			// MediaWiki 1.39+
-			( $skin instanceof MediaWiki\Skins\Vector\SkinVector )
-		) {
+		if ( $skin instanceof MediaWiki\Skins\Vector\SkinVector ) {
 			// Add modules for enabled features
 			foreach ( self::$features as $name => $feature ) {
 				if ( isset( $feature['modules'] ) && self::isEnabled( $name ) ) {
