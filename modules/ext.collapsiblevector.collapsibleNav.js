@@ -5,12 +5,15 @@
 	'use strict';
 	var map;
 
+	var vectorSkinName = mw.config.get( 'skin' ) === 'vector-2022' ?
+		'vector-2022' : 'vector';
+
 	// Use the same function for all navigation headings - don't repeat
 	function toggle( $element ) {
 		var isCollapsed = $element.parent().is( '.collapsed' );
 
 		$.cookie(
-			'vector-nav-' + $element.parent().attr( 'id' ),
+			vectorSkinName + '-nav-' + $element.parent().attr( 'id' ),
 			isCollapsed,
 			{ expires: 30, path: '/' }
 		);
@@ -71,10 +74,10 @@
 		$( '#mw-panel > .portal:not(.persistent)' )
 			.each( function ( i ) {
 				var id = $( this ).attr( 'id' ),
-					state = $.cookie( 'vector-nav-' + id );
+					state = $.cookie( vectorSkinName + '-nav-' + id );
 				$( this ).find( 'ul:first' ).attr( 'id', id + '-list' );
 				// Add anchor tag to heading for better accessibility
-				$( this ).find( 'label' ).wrapInner(
+				$( this ).find( '.vector-menu-heading' ).wrapInner(
 					$( '<a>' )
 						.attr( {
 							href: '#',
@@ -96,7 +99,7 @@
 						.find( '.vector-menu-content' )
 						.hide() // bug 34450
 						.show();
-					$( this ).find( 'label > a' )
+					$( this ).find( '.vector-menu-heading > a' )
 						.attr( {
 							'aria-pressed': 'true',
 							'aria-expanded': 'true'
@@ -105,7 +108,7 @@
 					$( this )
 						.addClass( 'collapsed' )
 						.removeClass( 'expanded' );
-					$( this ).find( 'label > a' )
+					$( this ).find( '.vector-menu-heading > a' )
 						.attr( {
 							'aria-pressed': 'false',
 							'aria-expanded': 'false'
@@ -113,26 +116,26 @@
 				}
 				// Re-save cookie
 				if ( state !== null ) {
-					$.cookie( 'vector-nav-' + $( this ).attr( 'id' ), state, { expires: 30, path: '/' } );
+					$.cookie( vectorSkinName + '-nav-' + $( this ).attr( 'id' ), state, { expires: 30, path: '/' } );
 				}
 			} );
 
 		/* Tab Indexing */
 
-		$headings = $( '#mw-panel > .portal:not(.persistent) > label' );
+		$headings = $( '#mw-panel > .portal:not(.persistent) > .vector-menu-heading' );
 
 		// Make it keyboard accessible
 		$headings.attr( 'tabindex', '0' );
 
 		// Toggle the selected menu's class and expand or collapse the menu
 		$( '#mw-panel' )
-			.on( 'keydown', '.portal:not(.persistent) > label', function ( e ) {
+			.on( 'keydown', '.portal:not(.persistent) > .vector-menu-heading', function ( e ) {
 				// Make the space and enter keys act as a click
 				if ( e.which === 13 /* Enter */ || e.which === 32 /* Space */ ) {
 					toggle( $( this ) );
 				}
 			} )
-			.on( 'mousedown', '.portal:not(.persistent) > label', function ( e ) {
+			.on( 'mousedown', '.portal:not(.persistent) > .vector-menu-heading', function ( e ) {
 				if ( e.which !== 3 ) { // Right mouse click
 					toggle( $( this ) );
 					$( this ).trigger( 'blur' );
