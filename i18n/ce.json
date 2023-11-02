@@ -5,6 +5,9 @@
 			"Умар"
 		]
 	},
+	"collapsiblevector": "«Векторан» интерфейс дика йар",
+	"collapsiblevector-desc": "«Векторан» темин интерфейс кечйо",
 	"collapsiblevector-collapsiblenav-preference": "Магийта блокаш араяха бакъхьарчу менью тӀехь «Векторни тема",
-	"collapsiblevector-noexperiments-preference": "Ма кхийдае экспериментан таронаш"
+	"collapsiblevector-collapsiblenav-more": "Кхин сов меттанаш",
+	"collapsiblevector-noexperiments-preference": "Ма кхийдайе экспериментан таронаш"
 }
