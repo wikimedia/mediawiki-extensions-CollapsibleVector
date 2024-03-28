@@ -12,7 +12,7 @@
 	function toggle( $element ) {
 		var isCollapsed = $element.parent().is( '.collapsed' );
 
-		$.cookie(
+		mw.cookie.set(
 			vectorSkinName + '-nav-' + $element.parent().attr( 'id' ),
 			isCollapsed,
 			{ expires: 30, path: '/' }
@@ -74,7 +74,7 @@
 		$( '#mw-panel > .portal:not(.persistent)' )
 			.each( function ( i ) {
 				var id = $( this ).attr( 'id' ),
-					state = $.cookie( vectorSkinName + '-nav-' + id );
+					state = mw.cookie.get( vectorSkinName + '-nav-' + id );
 				$( this ).find( 'ul:first' ).attr( 'id', id + '-list' );
 				// Add anchor tag to heading for better accessibility
 				$( this ).find( '.vector-menu-heading' ).wrapInner(
@@ -116,7 +116,7 @@
 				}
 				// Re-save cookie
 				if ( state !== null ) {
-					$.cookie( vectorSkinName + '-nav-' + $( this ).attr( 'id' ), state, { expires: 30, path: '/' } );
+					mw.cookie.set( vectorSkinName + '-nav-' + $( this ).attr( 'id' ), state, { expires: 30, path: '/' } );
 				}
 			} );
 
