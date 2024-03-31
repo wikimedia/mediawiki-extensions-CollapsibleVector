@@ -7,6 +7,8 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Vector\SkinVector22;
+use MediaWiki\Skins\Vector\SkinVectorLegacy;
 
 class CollapsibleVectorHooks {
 
@@ -84,7 +86,7 @@ class CollapsibleVectorHooks {
 	 * @return true
 	 */
 	public static function beforePageDisplay( $out, $skin ) {
-		if ( $skin instanceof MediaWiki\Skins\Vector\SkinVector ) {
+		if ( $skin instanceof SkinVectorLegacy || $skin instanceof SkinVector22 ) {
 			// Add modules for enabled features
 			foreach ( self::$features as $name => $feature ) {
 				if ( isset( $feature['modules'] ) && self::isEnabled( $name ) ) {
