@@ -49,12 +49,14 @@
 	},
 	"config": {
 		"CollapsibleVectorFeatures": {
-			"collapsiblenav": {
-				"global": false,
-				"user": true
+			"value": {
+				"collapsiblenav": {
+					"global": false,
+					"user": true
+				}
 			},
-			"_merge_strategy": "array_plus_2d"
+			"merge_strategy": "array_plus_2d"
 		}
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
