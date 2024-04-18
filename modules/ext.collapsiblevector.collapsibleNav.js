@@ -61,7 +61,7 @@
 		return true;
 	}
 
-	function executeMain( $ ) {
+	$( function () {
 		var $headings;
 
 		/* General Portal Modification */
@@ -142,11 +142,5 @@
 				}
 				return false;
 			} );
-	}
-
-	$( function ( $ ) {
-		mw.hook( 'wikipage.content' ).add( function () {
-			executeMain( $ );
-		} );
 	} );
 }() );
