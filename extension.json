@@ -49,7 +49,11 @@
 	},
 	"HookHandlers": {
 		"main": {
-			"class": "CollapsibleVectorHooks"
+			"class": "CollapsibleVectorHooks",
+			"services": [
+				"MainConfig",
+				"UserOptionsManager"
+			]
 		}
 	},
 	"config": {

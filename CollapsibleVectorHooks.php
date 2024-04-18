@@ -8,11 +8,11 @@
 
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
 use MediaWiki\Skins\Vector\SkinVector22;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
+use MediaWiki\User\UserOptionsManager;
 
 class CollapsibleVectorHooks implements
 	BeforePageDisplayHook,
@@ -20,6 +20,16 @@ class CollapsibleVectorHooks implements
 	MakeGlobalVariablesScriptHook,
 	ResourceLoaderGetConfigVarsHook
 {
+	private Config $config;
+	private UserOptionsManager $userOptionsManager;
+
+	public function __construct(
+		Config $config,
+		UserOptionsManager $userOptionsManager
+	) {
+		$this->config = $config;
+		$this->userOptionsManager = $userOptionsManager;
+	}
 
 	/** @var array */
 	protected static $features = [
@@ -54,23 +64,22 @@ class CollapsibleVectorHooks implements
 	 * @return bool
 	 */
 	private function isEnabled( $name ) {
-		global $wgCollapsibleVectorFeatures;
+		$features = $this->config->get( 'CollapsibleVectorFeatures' );
 
 		// Features with global set to true are always enabled
 		if (
-			!isset( $wgCollapsibleVectorFeatures[$name] ) || $wgCollapsibleVectorFeatures[$name]['global']
+			!isset( $features[$name] ) || $features[$name]['global']
 		) {
 			return true;
 		}
 		// Features with user preference control can have any number of preferences
 		// to be specific values to be enabled
-		if ( $wgCollapsibleVectorFeatures[$name]['user'] ) {
+		if ( $features[$name]['user'] ) {
 			if ( isset( self::$features[$name]['requirements'] ) ) {
-				$userOptionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
 				$user = RequestContext::getMain()->getUser();
 				foreach ( self::$features[$name]['requirements'] as $requirement => $value ) {
 					// Important! We really do want fuzzy evaluation here
-					if ( $userOptionsManager->getOption( $user, $requirement ) != $value ) {
+					if ( $this->userOptionsManager->getOption( $user, $requirement ) != $value ) {
 						return false;
 					}
 				}
@@ -112,12 +121,12 @@ class CollapsibleVectorHooks implements
 	 * @return true
 	 */
 	public function onGetPreferences( $user, &$defaultPreferences ) {
-		global $wgCollapsibleVectorFeatures;
+		$features = $this->config->get( 'CollapsibleVectorFeatures' );
 
 		foreach ( self::$features as $name => $feature ) {
 			if (
 				isset( $feature['preferences'] ) &&
-				( !isset( $wgCollapsibleVectorFeatures[$name] ) || $wgCollapsibleVectorFeatures[$name]['user'] )
+				( !isset( $features[$name] ) || $features[$name]['user'] )
 			) {
 				foreach ( $feature['preferences'] as $key => $options ) {
 					$defaultPreferences[$key] = $options;
@@ -137,13 +146,13 @@ class CollapsibleVectorHooks implements
 	 * @return void
 	 */
 	public function onResourceLoaderGetConfigVars( array &$vars, $skin, Config $config ): void {
-		global $wgCollapsibleVectorFeatures;
+		$features = $this->config->get( 'CollapsibleVectorFeatures' );
 
 		$configurations = [];
 		foreach ( self::$features as $name => $feature ) {
 			if (
 				isset( $feature['configurations'] ) &&
-				( !isset( $wgCollapsibleVectorFeatures[$name] ) || $this->isEnabled( $name ) )
+				( !isset( $features[$name] ) || $this->isEnabled( $name ) )
 			) {
 				foreach ( $feature['configurations'] as $configuration ) {
 					global $$wgConfiguration;
