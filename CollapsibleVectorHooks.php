@@ -6,11 +6,20 @@
  * @ingroup Extensions
  */
 
+use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
 use MediaWiki\Skins\Vector\SkinVector22;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
 
-class CollapsibleVectorHooks {
+class CollapsibleVectorHooks implements
+	BeforePageDisplayHook,
+	GetPreferencesHook,
+	MakeGlobalVariablesScriptHook,
+	ResourceLoaderGetConfigVarsHook
+{
 
 	/** @var array */
 	protected static $features = [
@@ -41,13 +50,10 @@ class CollapsibleVectorHooks {
 	/**
 	 * Checks if a certain option is enabled
 	 *
-	 * This method is public to allow other extensions that use CollapsibleVector to use the
-	 * same configuration as CollapsibleVector itself
-	 *
 	 * @param string $name Name of the feature, should be a key of $features
 	 * @return bool
 	 */
-	public static function isEnabled( $name ) {
+	private function isEnabled( $name ) {
 		global $wgCollapsibleVectorFeatures;
 
 		// Features with global set to true are always enabled
@@ -72,7 +78,7 @@ class CollapsibleVectorHooks {
 			return true;
 		}
 		// Features controlled by $wgCollapsibleVectorFeatures with both global and user set to false
-		// are awlways disabled
+		// are always disabled
 		return false;
 	}
 
@@ -83,18 +89,17 @@ class CollapsibleVectorHooks {
 	 *
 	 * @param OutputPage $out output page
 	 * @param Skin $skin current skin
-	 * @return true
+	 * @return void
 	 */
-	public static function beforePageDisplay( $out, $skin ) {
+	public function onBeforePageDisplay( $out, $skin ): void {
 		if ( $skin instanceof SkinVectorLegacy || $skin instanceof SkinVector22 ) {
 			// Add modules for enabled features
 			foreach ( self::$features as $name => $feature ) {
-				if ( isset( $feature['modules'] ) && self::isEnabled( $name ) ) {
+				if ( isset( $feature['modules'] ) && $this->isEnabled( $name ) ) {
 					$out->addModules( $feature['modules'] );
 				}
 			}
 		}
-		return true;
 	}
 
 	/**
@@ -106,7 +111,7 @@ class CollapsibleVectorHooks {
 	 * @param array &$defaultPreferences list of default user preference controls
 	 * @return true
 	 */
-	public static function getPreferences( $user, &$defaultPreferences ) {
+	public function onGetPreferences( $user, &$defaultPreferences ) {
 		global $wgCollapsibleVectorFeatures;
 
 		foreach ( self::$features as $name => $feature ) {
@@ -127,16 +132,18 @@ class CollapsibleVectorHooks {
 	 *
 	 * Adds enabled/disabled switches for Vector modules
 	 * @param array &$vars
-	 * @return true
+	 * @param string $skin
+	 * @param Config $config
+	 * @return void
 	 */
-	public static function resourceLoaderGetConfigVars( &$vars ) {
+	public function onResourceLoaderGetConfigVars( array &$vars, $skin, Config $config ): void {
 		global $wgCollapsibleVectorFeatures;
 
 		$configurations = [];
 		foreach ( self::$features as $name => $feature ) {
 			if (
 				isset( $feature['configurations'] ) &&
-				( !isset( $wgCollapsibleVectorFeatures[$name] ) || self::isEnabled( $name ) )
+				( !isset( $wgCollapsibleVectorFeatures[$name] ) || $this->isEnabled( $name ) )
 			) {
 				foreach ( $feature['configurations'] as $configuration ) {
 					global $$wgConfiguration;
@@ -147,21 +154,20 @@ class CollapsibleVectorHooks {
 		if ( count( $configurations ) ) {
 			$vars = array_merge( $vars, $configurations );
 		}
-		return true;
 	}
 
 	/**
 	 * @param array &$vars
-	 * @return bool
+	 * @param OutputPage $out
+	 * @return void
 	 */
-	public static function makeGlobalVariablesScript( &$vars ) {
+	public function onMakeGlobalVariablesScript( &$vars, $out ): void {
 		// Build and export old-style wgVectorEnabledModules object for back compat
 		$enabledModules = [];
 		foreach ( self::$features as $name => $feature ) {
-			$enabledModules[$name] = self::isEnabled( $name );
+			$enabledModules[$name] = $this->isEnabled( $name );
 		}
 
 		$vars['wgCollapsibleVectorEnabledModules'] = $enabledModules;
-		return true;
 	}
 }
