@@ -9,7 +9,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 require_once $path . '/maintenance/Maintenance.php';
 
 class SwitchExperimentPrefs extends Maintenance {
-	function __construct() {
+	public function __construct() {
 		parent::__construct();
 		$this->addOption( 'pref', 'Preference to set', true, true );
 		$this->addOption( 'value', 'Value to set the preference to', true, true );
@@ -18,7 +18,7 @@ class SwitchExperimentPrefs extends Maintenance {
 		$this->requireExtension( 'CollapsibleVector' );
 	}
 
-	function execute() {
+	public function execute() {
 		$services = $this->getServiceContainer();
 		$dbw = $services->getConnectionProvider()->getPrimaryDatabase();
 		$lbFactory = $services->getDBLoadBalancerFactory();
