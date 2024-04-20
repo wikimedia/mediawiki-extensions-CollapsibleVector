@@ -24,6 +24,7 @@ class SwitchExperimentPrefs extends Maintenance {
 		$dbw = wfGetDB( DB_PRIMARY );
 		$services = MediaWikiServices::getInstance();
 		$lbFactory = $services->getDBLoadBalancerFactory();
+		$userFactory = $services->getUserFactory();
 		$userOptionsManager = $services->getUserOptionsManager();
 
 		$batchSize = 100;
@@ -46,7 +47,7 @@ class SwitchExperimentPrefs extends Maintenance {
 			$lastUserID = max( $ids );
 
 			foreach ( $ids as $id ) {
-				$user = User::newFromId( $id );
+				$user = $userFactory->newFromId( $id );
 				if ( !$user->isRegistered() ) {
 					continue;
 				}
