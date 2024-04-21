@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
-
 $path = '../../..';
 
 if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
@@ -21,8 +19,8 @@ class SwitchExperimentPrefs extends Maintenance {
 	}
 
 	function execute() {
-		$dbw = wfGetDB( DB_PRIMARY );
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
+		$dbw = $services->getConnectionProvider()->getPrimaryDatabase();
 		$lbFactory = $services->getDBLoadBalancerFactory();
 		$userFactory = $services->getUserFactory();
 		$userOptionsManager = $services->getUserOptionsManager();
