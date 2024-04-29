@@ -21,8 +21,8 @@
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		"CollapsibleVectorHooks": "CollapsibleVectorHooks.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\CollapsibleVector\\": "includes/"
 	},
 	"ResourceModules": {
 		"ext.collapsiblevector.collapsibleNav": {
@@ -49,7 +49,7 @@
 	},
 	"HookHandlers": {
 		"main": {
-			"class": "CollapsibleVectorHooks",
+			"class": "MediaWiki\\Extension\\CollapsibleVector\\Hooks",
 			"services": [
 				"MainConfig",
 				"UserOptionsManager"

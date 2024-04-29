@@ -6,15 +6,22 @@
  * @ingroup Extensions
  */
 
-use MediaWiki\Hook\BeforePageDisplayHook;
+namespace MediaWiki\Extension\CollapsibleVector;
+
+use MediaWiki\Config\Config;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
 use MediaWiki\Skins\Vector\SkinVector22;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
-use MediaWiki\User\UserOptionsManager;
+use MediaWiki\User\Options\UserOptionsManager;
+use MediaWiki\User\User;
+use Skin;
 
-class CollapsibleVectorHooks implements
+class Hooks implements
 	BeforePageDisplayHook,
 	GetPreferencesHook,
 	MakeGlobalVariablesScriptHook,
