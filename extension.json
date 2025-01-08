@@ -44,8 +44,7 @@
 	"Hooks": {
 		"BeforePageDisplay": "main",
 		"GetPreferences": "main",
-		"ResourceLoaderGetConfigVars": "main",
-		"MakeGlobalVariablesScript": "main"
+		"ResourceLoaderGetConfigVars": "main"
 	},
 	"HookHandlers": {
 		"main": {
