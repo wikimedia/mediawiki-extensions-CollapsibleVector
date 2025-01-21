@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jeeputer",
 			"Reza1615"
 		]
 	},
-	"collapsiblevector-collapsiblenav-more": "زبان‌های بیشتر"
+	"collapsiblevector": "بهبودهای رابط کاربری برای وکتور",
+	"collapsiblevector-desc": "رابط کاربری هنگام استفاده از پوستهٔ وکتور را بهبود می‌دهد",
+	"collapsiblevector-collapsiblenav-preference": "فعال‌سازی آیتم‌های تاشو در نوار کناری پوستهٔ وکتور",
+	"collapsiblevector-collapsiblenav-more": "زبان‌های بیشتر",
+	"collapsiblevector-noexperiments-preference": "مرا از آزمایش‌های ویژگی‌ها مستثنی کن"
 }
