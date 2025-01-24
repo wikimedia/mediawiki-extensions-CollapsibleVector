@@ -10,7 +10,6 @@ namespace MediaWiki\Extension\CollapsibleVector;
 
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
-use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
@@ -24,7 +23,6 @@ use Skin;
 class Hooks implements
 	BeforePageDisplayHook,
 	GetPreferencesHook,
-	MakeGlobalVariablesScriptHook,
 	ResourceLoaderGetConfigVarsHook
 {
 	private Config $config;
@@ -173,20 +171,5 @@ class Hooks implements
 		if ( count( $configurations ) ) {
 			$vars = array_merge( $vars, $configurations );
 		}
-	}
-
-	/**
-	 * @param array &$vars
-	 * @param OutputPage $out
-	 * @return void
-	 */
-	public function onMakeGlobalVariablesScript( &$vars, $out ): void {
-		// Build and export old-style wgVectorEnabledModules object for back compat
-		$enabledModules = [];
-		foreach ( self::$features as $name => $feature ) {
-			$enabledModules[$name] = $this->isEnabled( $name );
-		}
-
-		$vars['wgCollapsibleVectorEnabledModules'] = $enabledModules;
 	}
 }
