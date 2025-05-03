@@ -3,14 +3,14 @@
  */
 ( function () {
 	'use strict';
-	var map;
+	let map;
 
-	var vectorSkinName = mw.config.get( 'skin' ) === 'vector-2022' ?
+	const vectorSkinName = mw.config.get( 'skin' ) === 'vector-2022' ?
 		'vector-2022' : 'vector';
 
 	// Use the same function for all navigation headings - don't repeat
 	function toggle( $element ) {
-		var isCollapsed = $element.parent().is( '.collapsed' );
+		let isCollapsed = $element.parent().is( '.collapsed' );
 
 		mw.cookie.set(
 			vectorSkinName + '-nav-' + $element.parent().attr( 'id' ),
@@ -61,8 +61,8 @@
 		return true;
 	}
 
-	$( function () {
-		var $headings;
+	$( () => {
+		let $headings;
 
 		/* General Portal Modification */
 
@@ -73,7 +73,7 @@
 		// Use cookie data to restore preferences of what to show and hide
 		$( '#mw-panel > .portal:not(.persistent)' )
 			.each( function ( i ) {
-				var id = $( this ).attr( 'id' ),
+				const id = $( this ).attr( 'id' ),
 					state = mw.cookie.get( vectorSkinName + '-nav-' + id );
 				$( this ).find( 'ul:first' ).attr( 'id', id + '-list' );
 				// Add anchor tag to heading for better accessibility
