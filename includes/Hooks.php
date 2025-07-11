@@ -25,15 +25,10 @@ class Hooks implements
 	GetPreferencesHook,
 	ResourceLoaderGetConfigVarsHook
 {
-	private Config $config;
-	private UserOptionsManager $userOptionsManager;
-
 	public function __construct(
-		Config $config,
-		UserOptionsManager $userOptionsManager
+		private readonly Config $config,
+		private readonly UserOptionsManager $userOptionsManager,
 	) {
-		$this->config = $config;
-		$this->userOptionsManager = $userOptionsManager;
 	}
 
 	/** @var array */
