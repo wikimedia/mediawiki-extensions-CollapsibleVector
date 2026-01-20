@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
-	"collapsiblevector": "Poboljšanja sučelja stila „Vektorsko“",
-	"collapsiblevector-desc": "Poboljšava elemente korisničkog sučelja kada se koristi tema „Vektorska“.",
+	"collapsiblevector": "Poboljšanja interfejsa za temu Vector",
+	"collapsiblevector-desc": "Poboljšava elemente korisničkog interfejsa kada se koristi tema Vector",
 	"collapsiblevector-collapsiblenav-preference": "Omogući rasklop lijevog navigacijskog izbornika u temi „Vektorska“",
 	"collapsiblevector-collapsiblenav-more": "Više jezika",
 	"collapsiblevector-noexperiments-preference": "Isključi me iz daljnjih eksperimentiranja"
