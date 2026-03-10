@@ -77,7 +77,6 @@ class Hooks implements
 		if ( $features[$name]['user'] ) {
 			if ( isset( self::$features[$name]['requirements'] ) ) {
 				$user = RequestContext::getMain()->getUser();
-				// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset False positive
 				foreach ( self::$features[$name]['requirements'] as $requirement => $value ) {
 					// Important! We really do want fuzzy evaluation here
 					if ( $this->userOptionsManager->getOption( $user, $requirement ) != $value ) {
