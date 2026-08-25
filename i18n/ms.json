@@ -3,11 +3,12 @@
 		"authors": [
 			"Anakmalaysia",
 			"Aurora",
-			"Diagramma Della Verita"
+			"Diagramma Della Verita",
+			"Hakimi97"
 		]
 	},
-	"collapsiblevector": "pembaikian untuk Vector",
-	"collapsiblevector-desc": "Meningkatkan antara muka pengguna ketika menggunakan kulit Vector",
+	"collapsiblevector": "Penambahbaikan UI untuk Vektor",
+	"collapsiblevector-desc": "Mempertingkat antara muka pengguna ketika menggunakan kulit Vektor",
 	"collapsiblevector-collapsiblenav-preference": "Aktifkan menu navigasi pada laman",
 	"collapsiblevector-collapsiblenav-more": "Bahasa lain",
 	"collapsiblevector-noexperiments-preference": "Kecualikan saya dari uji kaji ciri"
